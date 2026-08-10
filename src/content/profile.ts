@@ -8,7 +8,7 @@ export const profile = {
   whatsappUrl: "https://wa.me/923413332077",
   githubUrl: "https://github.com/huzaifasajjad012",
   location: "Pakistan",
-  availability: "Available for selected freelance, contract and remote opportunities",
+  availability: "Available for projects",
   heroTitle: "Freelance full-stack web development,",
   heroTitleAccent: "from interface to infrastructure.",
   heroCopy:

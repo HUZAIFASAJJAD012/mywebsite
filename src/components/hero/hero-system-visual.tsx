@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type PointerEvent } from "react";
+import { Box, Cloud, Code2, MoreHorizontal, Smartphone } from "lucide-react";
 import { m, useMotionTemplate, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { motionTokens } from "@/lib/motion";
 
@@ -15,11 +16,7 @@ export function HeroSystemVisual() {
   const smoothY = useSpring(pointerY, motionTokens.spring.pointer);
   const rotateY = useTransform(smoothX, [-.5, .5], [-2.5, 2.5]);
   const rotateX = useTransform(smoothY, [-.5, .5], [2.5, -2.5]);
-  const backX = useTransform(smoothX, [-.5, .5], [-8, 8]);
-  const backY = useTransform(smoothY, [-.5, .5], [-6, 6]);
-  const midX = useTransform(backX, (value) => value * -.55);
-  const midY = useTransform(backY, (value) => value * -.55);
-  const spotlight = useMotionTemplate`radial-gradient(260px circle at ${spotX}px ${spotY}px, rgba(103, 232, 249, .11), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(300px circle at ${spotX}px ${spotY}px, rgba(37, 99, 235, .13), transparent 72%)`;
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
@@ -38,25 +35,38 @@ export function HeroSystemVisual() {
   function reset() { pointerX.set(0); pointerY.set(0); }
 
   return (
-    <m.div className="product-canvas" onPointerMove={move} onPointerLeave={reset} style={{ backgroundImage: capable ? spotlight : undefined }} aria-label="Connected product system showing frontend, backend, mobile and cloud">
-      <m.div className="canvas-plane plane-back" style={capable ? { x: backX, y: backY } : undefined} aria-hidden="true" />
-      <m.div className="canvas-plane plane-mid" style={capable ? { x: midX, y: midY } : undefined} aria-hidden="true" />
-      <svg className="canvas-connectors" viewBox="0 0 640 540" aria-hidden="true">
-        <m.path d="M128 116 C180 120 180 180 244 190" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .75, delay: .35 }} />
-        <m.path d="M510 112 C460 130 475 180 416 194" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .75, delay: .42 }} />
-        <m.path d="M110 425 C174 415 186 370 242 350" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .75, delay: .49 }} />
-        <m.path d="M522 428 C465 410 458 370 410 351" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .75, delay: .56 }} />
+    <m.div className="product-canvas" onPointerMove={move} onPointerLeave={reset} style={{ backgroundImage: capable ? spotlight : undefined }} aria-label="Connected system architecture showing frontend, backend, mobile, cloud and technology stack">
+      <div className="blueprint-grid grid-left" aria-hidden="true" /><div className="blueprint-grid grid-right" aria-hidden="true" />
+      <svg className="canvas-connectors" viewBox="0 0 860 680" aria-hidden="true">
+        <m.path d="M182 82 H310 Q328 82 328 100 V162" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .12 }} />
+        <m.path d="M678 102 H580 Q562 102 562 120 V162" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .17 }} />
+        <m.path d="M170 490 H236 Q252 490 252 472 V414" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .22 }} />
+        <m.path d="M686 512 H622 Q604 512 604 494 V414" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .27 }} />
       </svg>
-      <span className="canvas-chip chip-frontend">Frontend</span><span className="canvas-chip chip-backend">Backend</span><span className="canvas-chip chip-mobile">Mobile</span><span className="canvas-chip chip-cloud">Cloud</span>
-      <m.div className="product-window" style={capable ? { rotateX, rotateY, transformPerspective: 1000 } : undefined}>
-        <div className="product-window-bar"><span /><span /><span /><small>product.system</small><em>Live</em></div>
+
+      <div className="arch-node node-frontend" aria-hidden="true"><Code2 /><div><strong>Frontend</strong><small>React · Next.js · TypeScript</small></div></div>
+      <div className="arch-node node-backend" aria-hidden="true"><Box /><div><strong>Backend</strong><small>Node.js · NestJS · APIs</small></div></div>
+      <div className="arch-node node-mobile" aria-hidden="true"><Smartphone /><div><strong>Mobile</strong><small>React Native · Flutter</small></div></div>
+      <div className="arch-node node-cloud" aria-hidden="true"><Cloud /><div><strong>Cloud</strong><small>AWS · Docker · CI/CD</small></div></div>
+
+      <m.div className="product-window" style={capable ? { rotateX, rotateY, transformPerspective: 1200 } : undefined} aria-hidden="true">
+        <div className="product-window-bar"><span>System architecture</span><MoreHorizontal size={18} /></div>
         <div className="product-window-body">
-          <div className="product-sidebar"><span className="active" /><span /><span /><span /></div>
-          <div className="product-dashboard"><div className="dashboard-label">Delivery overview</div><strong>One system.<br />Every layer.</strong><div className="dashboard-grid"><span /><span /><span /></div></div>
+          <div className="architecture-core">
+            <span className="dashboard-label">Connected product layers</span>
+            <div className="layer-stack"><i /><i /><i /><i /></div>
+          </div>
+          <div className="architecture-stats">
+            <div><small>Architecture</small><strong>Modular</strong><span className="signal-line" /></div>
+            <div><small>Delivery</small><strong>Tested</strong><span className="signal-line short" /></div>
+            <div><small>Releases</small><strong>Repeatable</strong><span className="signal-bars"><i /><i /><i /><i /><i /></span></div>
+            <div className="system-status"><small>Status</small><span><i /> Production-minded</span></div>
+          </div>
         </div>
       </m.div>
-      <div className="stack-rail" aria-label="Core capabilities"><span>Next.js</span><span>NestJS</span><span>React Native</span><span>PostgreSQL</span></div>
-      <div className="canvas-coordinate top">SYS / 01</div><div className="canvas-coordinate bottom">34.01° N · 71.58° E</div>
+
+      <div className="stack-rail" aria-hidden="true"><span>Technology stack</span><div><b>⚛</b><b>N</b><b>TS</b><b>JS</b><b>Nj</b><b>▣</b><b>aws</b></div></div>
+      <div className="canvas-caption" aria-hidden="true"><i /> Building scalable digital products <i /></div>
     </m.div>
   );
 }

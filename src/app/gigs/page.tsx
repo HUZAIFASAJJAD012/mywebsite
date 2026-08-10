@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Blocks, Bot, Check, CloudUpload, MessageCircle, PanelsTopLeft, SearchCheck, ShoppingCart } from "lucide-react";
+import { ArrowRight, Blocks, Bot, Box, Check, CloudUpload, MessageCircle, PanelsTopLeft, SearchCheck, ShieldCheck, ShoppingCart, Sparkles } from "lucide-react";
 import { gigs, gigFaqs, type GigIcon } from "@/content/gigs";
 import { profile, siteUrl } from "@/content/profile";
 
@@ -70,9 +70,9 @@ export default function GigsPage() {
     <>
       <header className="gigs-hero">
         <div className="container gigs-hero-grid">
-          <div>
+          <div className="gigs-hero-copy">
             <span className="eyebrow">Freelance services</span>
-            <h1>Freelance web development, SEO and AI automation services.</h1>
+            <h1>Freelance web development, SEO and AI <span>automation services.</span></h1>
             <p>Hire a full-stack developer for business landing pages, custom e-commerce websites, AI workflow automation, technical SEO, production deployment, bots and browser extensions.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">Explore services <ArrowRight size={17} /></a>
@@ -80,10 +80,21 @@ export default function GigsPage() {
             </div>
           </div>
           <aside className="gigs-hero-summary" aria-label="Popular service starting prices">
-            <span>Popular starting points</span>
-            <div><strong>$100</strong><small>Business landing page</small></div>
-            <div><strong>$2,000+</strong><small>Full e-commerce build</small></div>
-            <p>Every project is scoped before work begins. Custom requirements receive a tailored quote.</p>
+            <span className="gigs-summary-label"><Sparkles size={18} aria-hidden="true" /> Popular starting points</span>
+            <div className="gigs-price-row">
+              <span className="gigs-price-icon"><Box size={23} aria-hidden="true" /></span>
+              <strong>$100</strong>
+              <small>Business landing page</small>
+            </div>
+            <div className="gigs-price-row">
+              <span className="gigs-price-icon"><ShoppingCart size={23} aria-hidden="true" /></span>
+              <strong>$2,000+</strong>
+              <small>Full e-commerce build</small>
+            </div>
+            <div className="gigs-price-note">
+              <span className="gigs-price-icon"><ShieldCheck size={23} aria-hidden="true" /></span>
+              <p>Every project is scoped before work begins.<br />Custom requirements receive a tailored quote.</p>
+            </div>
           </aside>
         </div>
       </header>

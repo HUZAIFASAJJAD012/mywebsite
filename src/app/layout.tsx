@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ContactCommandLauncher } from "@/components/layout/contact-command-launcher";
+import { IntroductionVideo } from "@/components/layout/introduction-video";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { profile, siteUrl } from "@/content/profile";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <SiteHeader />
           <main id="main-content">{children}</main>
           <SiteFooter />
+          <IntroductionVideo />
           <ContactCommandLauncher />
         </MotionProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, profilePageJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />

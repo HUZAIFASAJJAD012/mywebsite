@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { profile } from "@/content/profile";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string | null>("work");
   const openButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -74,13 +74,16 @@ export function SiteHeader() {
     <>
       <header className={cn("site-header", scrolled && "scrolled")}>
         <div className="container nav-shell">
-          <Link className="brand" href="/" aria-label="Huzaifa Sajjad, home">
-            <span className="brand-mark">{profile.initials}</span>
-            <span className="brand-name">{profile.name}</span>
-          </Link>
+          <div className="header-identity">
+            <Link className="brand" href="/" aria-label="Huzaifa Sajjad, home">
+              <span className="brand-mark">{profile.initials}</span>
+              <span className="brand-name">{profile.name}</span>
+            </Link>
+            <span className="header-availability"><i />{profile.availability}</span>
+          </div>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => <Link className={cn("nav-link", isActive(href) && "active")} href={href} key={label}>{label}{isActive(href) ? <m.span className="active-nav" layoutId="active-nav" transition={{ type: "spring", stiffness: 420, damping: 34 }} /> : null}</Link>)}
-            <Link className="button button-primary" href="/contact">Start a project</Link>
+            <Link className="button button-primary" href="/contact">Start a project <ArrowRight size={18} /></Link>
           </nav>
           <button ref={openButtonRef} className="menu-toggle" type="button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
             <Menu size={20} />
@@ -89,14 +92,14 @@ export function SiteHeader() {
       </header>
       <AnimatePresence>
         {open ? (
-          <m.div ref={menuRef} className="mobile-menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <m.div ref={menuRef} className="mobile-menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .18 }} role="dialog" aria-modal="true" aria-label="Mobile navigation">
             <div className="mobile-menu-top">
               <Link className="brand" href="/" onClick={() => setOpen(false)}><span className="brand-mark">HS</span></Link>
               <button ref={closeButtonRef} className="menu-toggle" type="button" onClick={() => setOpen(false)} aria-label="Close menu"><X size={20} /></button>
             </div>
             <nav aria-label="Mobile navigation">
               {links.map(([label, href], index) => (
-                <m.div key={label} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .05 }}>
+                <m.div key={label} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .2, delay: index * .03 }}>
                   <Link href={href} onClick={() => setOpen(false)}>{label}</Link>
                 </m.div>
               ))}
