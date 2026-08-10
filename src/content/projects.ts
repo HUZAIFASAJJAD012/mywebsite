@@ -10,6 +10,7 @@ export type Project = {
   liveUrl?: string;
   repositoryUrl?: string;
   featured: boolean;
+  coverImage?: string;
   coverTone: "indigo" | "cyan" | "violet" | "teal" | "blue" | "rose";
   challenge: string;
   solution: string;
@@ -28,6 +29,7 @@ export const projects: Project[] = [
     stack: ["Responsive web", "Multilingual support", "Reservations", "WhatsApp integration"],
     liveUrl: "https://restoranalkhalifa.com/",
     featured: true,
+    coverImage: "/project1.png",
     coverTone: "rose",
     challenge: "Bring the restaurant’s signature dishes, complete menu, event services, gallery, reservation flow and contact information together in one clear customer journey.",
     solution: "A responsive restaurant experience with structured menu discovery, table-reservation access, multilingual support and direct WhatsApp communication.",

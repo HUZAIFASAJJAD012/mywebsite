@@ -196,10 +196,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-art.blue { background: radial-gradient(circle at 70% 25%, rgba(59,130,246,.28), transparent 50%), #071327; }
 .project-art.rose { background: radial-gradient(circle at 30% 30%, rgba(251,113,133,.22), transparent 50%), #1c0b1b; }
 .browser-mockup { width: min(100%, 620px); aspect-ratio: 1.42; border: 1px solid rgba(255,255,255,.16); border-radius: 15px; overflow: hidden; background: #f6f7fb; box-shadow: 0 35px 70px rgba(0,0,0,.38); transform: perspective(1200px) rotateY(-4deg) rotateX(2deg); transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.browser-mockup.has-project-cover { aspect-ratio: 1.62; }
 .project-feature:nth-child(even) .browser-mockup { transform: perspective(1200px) rotateY(4deg) rotateX(2deg); }
 .project-feature:hover .browser-mockup { transform: perspective(1200px) rotateY(0) rotateX(0) translateY(-8px); }
 .browser-bar { height: 9%; display: flex; align-items: center; gap: 5px; padding: 0 4%; background: #e9ecf3; }
 .browser-bar span { width: 6px; aspect-ratio: 1; border-radius: 50%; background: #b9bfce; }
+.project-cover-image { position: relative; height: 91%; overflow: hidden; }
+.project-cover-image img { object-fit: cover; object-position: center 24%; }
 .mock-page { height: 91%; padding: 9%; color: #11182b; background: linear-gradient(140deg, #fff, #e9ecf8); }
 .mock-nav { width: 68%; height: 4%; border-radius: 10px; background: #c8cedd; }
 .mock-title { width: 76%; height: 22%; margin-top: 12%; border-radius: 8px; background: #1a2344; }
