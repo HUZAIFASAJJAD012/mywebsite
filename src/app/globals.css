@@ -197,10 +197,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes introduction-video-enter { from { opacity: 0; transform: translate(-12px, 7px); } to { opacity: 1; transform: translate(0); } }
 .introduction-video-head { min-height: 42px; display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .35rem .4rem .35rem .8rem; border-bottom: 1px solid rgba(65,143,249,.22); }
 .introduction-video-head > span { display: inline-flex; align-items: center; gap: .5rem; color: #a9c8ec; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.introduction-video-head > span b { font: inherit; }
 .introduction-video-head i { width: 6px; height: 6px; border-radius: 50%; background: #2f93ff; box-shadow: 0 0 9px #2f93ff; }
+.introduction-video-actions { display: flex; gap: .25rem; }
 .introduction-video-head button { display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 50%; color: #dbeafe; background: rgba(23,49,89,.72); cursor: pointer; transition: background .16s ease, transform .16s ease; }
 .introduction-video-head button:hover { background: rgba(42,83,143,.9); transform: scale(1.04); }
+.introduction-video-media { position: relative; }
 .introduction-video video { display: block; width: 100%; aspect-ratio: 9 / 16; background: #020713; object-fit: contain; }
+.introduction-play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; width: 100%; border: 0; color: white; background: linear-gradient(to top, rgba(2,7,19,.82), rgba(2,7,19,.16)); cursor: pointer; }
+.introduction-play span { display: inline-flex; align-items: center; gap: .45rem; padding: .65rem .75rem; border: 1px solid rgba(147,197,253,.5); border-radius: 999px; background: rgba(7,24,52,.86); box-shadow: 0 10px 28px rgba(0,0,0,.35); font-size: .7rem; font-weight: 800; white-space: nowrap; }
+.introduction-play:hover span { border-color: #60a5fa; background: rgba(13,54,112,.92); }
+.background-music-control { position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 44; display: inline-flex; min-height: 44px; align-items: center; gap: .55rem; padding: .65rem .85rem; border: 1px solid rgba(65,143,249,.42); border-radius: 999px; color: #c8ddf7; background: rgba(5,14,32,.94); box-shadow: 0 15px 35px rgba(0,0,0,.32); backdrop-filter: blur(14px); cursor: pointer; font-size: .72rem; font-weight: 800; }
+.background-music-control:hover { border-color: #60a5fa; background: rgba(10,35,73,.96); }
 .command-backdrop { position: fixed; inset: 0; z-index: 80; display: grid; place-items: start center; padding: min(16vh, 8rem) 1.25rem 2rem; background: rgba(2,4,13,.76); backdrop-filter: blur(8px); }
 .command-panel { width: min(100%, 600px); padding: 1.25rem; border: 1px solid var(--border-strong); border-radius: 22px; background: #0a1022; box-shadow: 0 35px 100px rgba(0,0,0,.55); }
 .command-head { display: flex; align-items: start; justify-content: space-between; gap: 1rem; padding: .5rem .4rem 1.2rem; }.command-head h2 { margin: .55rem 0 0; font-size: 1.55rem; }
@@ -574,7 +582,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .canvas-caption { display: none; }
   .command-trigger { right: .8rem; bottom: .8rem; }
   .command-trigger kbd { display: none; }
-  .introduction-video { left: .8rem; bottom: .8rem; width: 160px; }
+  .introduction-video { left: .8rem; bottom: .8rem; width: 180px; }
+  .background-music-control { left: .8rem; bottom: .8rem; }
   .timeline-item { grid-template-columns: 1fr; gap: .8rem; padding-left: 2.5rem; }
   .process-grid { grid-template-columns: 1fr; }
   .process-step { padding-left: 2rem; border-top: 0; border-left: 1px solid var(--border-strong); }
@@ -623,6 +632,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .introduction-video { width: 130px; border-radius: 13px; }
   .introduction-video-head { min-height: 38px; padding-left: .65rem; }
   .introduction-video-head > span { font-size: .58rem; letter-spacing: .07em; }
+  .introduction-video-head > span b { display: none; }
   .introduction-video-head button { width: 30px; height: 30px; }
   .footer-grid { gap: 1.25rem; }
 }
