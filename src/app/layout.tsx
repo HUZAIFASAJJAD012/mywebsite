@@ -16,11 +16,21 @@ const body = Manrope({ subsets: ["latin"], variable: "--font-body", display: "sw
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Huzaifa Sajjad — Full-Stack Developer and Web Team Lead", template: "%s — Huzaifa Sajjad" },
-  description: "Portfolio of Huzaifa Sajjad, a Full-Stack Developer, Mobile App Developer and Web Team Lead building modern web applications, backend systems and mobile products.",
+  applicationName: profile.name,
+  title: { default: "Huzaifa Sajjad | Freelance Full-Stack Web Developer", template: "%s — Huzaifa Sajjad" },
+  description: "Hire Huzaifa Sajjad for freelance web development, e-commerce, AI automation, technical SEO, deployment, bots and browser extensions worldwide.",
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  category: "technology",
   alternates: { canonical: "/" },
-  openGraph: { type: "website", title: `${profile.name} — Full-Stack Developer`, description: profile.heroCopy, url: "/", siteName: `${profile.name} Portfolio` },
-  twitter: { card: "summary_large_image", title: `${profile.name} — Full-Stack Developer`, description: profile.heroCopy },
+  openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy, url: "/", siteName: profile.name, locale: "en_US" },
+  twitter: { card: "summary_large_image", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
+  },
 };
 
 export const viewport: Viewport = { themeColor: "#050816", colorScheme: "dark" };
@@ -38,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <SiteFooter />
           <ContactCommandLauncher />
         </MotionProvider>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, profilePageJsonLd, websiteJsonLd]) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, profilePageJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
         <Analytics /><SpeedInsights />
       </body>
     </html>

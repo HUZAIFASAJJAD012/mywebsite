@@ -34,20 +34,21 @@ const icons: Record<GigIcon, LucideIcon> = {
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": "CollectionPage",
+  "@id": `${siteUrl}/gigs#page`,
   name: `${profile.name} Web Development Services`,
   url: `${siteUrl}/gigs`,
   description: "Freelance web development, e-commerce, AI automation, SEO, deployment, bot and browser extension services.",
-  areaServed: "Worldwide",
-  provider: { "@type": "Person", name: profile.name, url: siteUrl },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
+  mainEntity: {
+    "@type": "ItemList",
     name: "Development and digital services",
-    itemListElement: gigs.map((gig) => ({
+    itemListElement: gigs.map((gig, index) => ({
       "@type": "Offer",
-      url: `${siteUrl}/gigs#${gig.slug}`,
+      position: index + 1,
+      url: `${siteUrl}/services/${gig.slug}`,
       ...(gig.startingPrice ? { price: gig.startingPrice, priceCurrency: "USD" } : {}),
-      itemOffered: { "@type": "Service", name: gig.title, description: gig.description },
+      seller: { "@id": `${siteUrl}/#person` },
+      itemOffered: { "@type": "Service", name: gig.title, description: gig.description, url: `${siteUrl}/services/${gig.slug}`, areaServed: "Worldwide" },
     })),
   },
 };
@@ -71,8 +72,8 @@ export default function GigsPage() {
         <div className="container gigs-hero-grid">
           <div>
             <span className="eyebrow">Freelance services</span>
-            <h1>Choose a clear starting point for your next digital project.</h1>
-            <p>Web development, e-commerce, AI automation, SEO and production support for businesses that need practical work delivered with a clear scope.</p>
+            <h1>Freelance web development, SEO and AI automation services.</h1>
+            <p>Hire a full-stack developer for business landing pages, custom e-commerce websites, AI workflow automation, technical SEO, production deployment, bots and browser extensions.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">Explore services <ArrowRight size={17} /></a>
               <a className="button" href={whatsappHref} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} /> Discuss on WhatsApp</a>
@@ -104,7 +105,7 @@ export default function GigsPage() {
                   <p>{gig.description}</p>
                   <strong className="gig-price">{gig.priceLabel}</strong>
                   <ul>{gig.deliverables.map((item) => <li key={item}><Check size={16} aria-hidden="true" /> {item}</li>)}</ul>
-                  <a className="text-link" href={inquiryHref} target="_blank" rel="noopener noreferrer">Ask about this gig <ArrowRight size={16} /></a>
+                  <div className="gig-actions"><Link className="text-link" href={`/services/${gig.slug}`}>View service details <ArrowRight size={16} /></Link><a href={inquiryHref} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
                 </article>
               );
             })}

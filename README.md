@@ -22,9 +22,18 @@ pnpm build
 
 ## Contact delivery
 
-Copy `.env.example` to `.env.local` and configure `CONTACT_WEBHOOK_URL` with a server-side endpoint that accepts the validated JSON enquiry. Without it, the form safely directs visitors to email or WhatsApp.
+Copy `.env.example` to `.env.local` and configure the server-only `SMTP_*` values and `CONTACT_TO_EMAIL`. `CONTACT_WEBHOOK_URL` can remain as an optional fallback. Without either delivery method, the form safely directs visitors to email or WhatsApp.
 
-Set `NEXT_PUBLIC_SITE_URL` to the production origin before deployment so canonical URLs, sitemap entries and structured data use the correct domain.
+The canonical production origin is `https://www.huzaifasajjaddev.online`. Keep `NEXT_PUBLIC_SITE_URL` set to that exact HTTPS origin so canonical URLs, sitemap entries and structured data remain consistent.
+
+## Search launch checklist
+
+- Keep `NEXT_PUBLIC_SITE_URL` set to `https://www.huzaifasajjaddev.online` and update `SITE_LAST_MODIFIED` after meaningful content changes.
+- Configure both `www.huzaifasajjaddev.online` and `huzaifasajjaddev.online` in Vercel, then make `www` primary so the bare domain receives a valid certificate and redirects permanently.
+- Add the domain to Google Search Console and Bing Webmaster Tools.
+- Add the provided verification tokens as `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` in the production environment.
+- Submit `/sitemap.xml` in both webmaster tools after deployment and inspect the homepage, `/gigs` and the individual `/services/*` URLs.
+- Use Search Console performance data to improve pages based on real queries; no ranking position is guaranteed.
 
 ## Content
 

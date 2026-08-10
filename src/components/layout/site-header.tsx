@@ -12,7 +12,7 @@ const links = [
   ["Work", "/#work"],
   ["Expertise", "/#expertise"],
   ["Experience", "/#experience"],
-  ["Gigs", "/gigs"],
+  ["Services", "/gigs"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ] as const;

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { ContactCta } from "@/components/layout/contact-cta";
 
-export const metadata: Metadata = { title: "Projects", description: "Selected web, mobile and full-stack projects delivered by Huzaifa Sajjad.", alternates: { canonical: "/projects" } };
+export const metadata: Metadata = { title: "Full-Stack Web Development Projects", description: "Explore full-stack web development work by Huzaifa Sajjad, including responsive interfaces, multilingual content, reservations and production delivery.", alternates: { canonical: "/projects" }, openGraph: { title: "Full-Stack Web Development Projects", description: "Selected client work delivered from interface to production.", url: "/projects", type: "website" } };
 
 export default function ProjectsPage() {
   return (

@@ -10,13 +10,14 @@ export function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy-col">
           <div className="availability hero-enter enter-one"><span className="availability-dot" />{profile.availability}</div>
-          <h1 className="hero-enter enter-two">Full-stack products,<br /><span>built from interface to infrastructure.</span></h1>
+          <span className="eyebrow hero-name hero-enter enter-one">{profile.name}</span>
+          <h1 className="hero-enter enter-two">{profile.heroTitle}<br /><span>{profile.heroTitleAccent}</span></h1>
           <div className="hero-enter enter-three"><HeroRole /></div>
           <p className="hero-copy hero-enter enter-three">{profile.heroCopy}</p>
           <div className="hero-enter enter-four">
             <div className="hero-actions">
               <Link className="button button-primary" href="#work">View selected work <ArrowDownRight size={18} /></Link>
-              <Link className="button" href="/contact">Start a project</Link>
+              <Link className="button" href="/gigs">View services</Link>
             </div>
             <div className="hero-links" aria-label="Contact and profile links">
               <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>

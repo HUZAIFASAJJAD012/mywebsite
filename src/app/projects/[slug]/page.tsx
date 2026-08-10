@@ -5,14 +5,14 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { projects, getProject } from "@/content/projects";
 import { ProjectArt } from "@/components/projects/project-art";
 import { ContactCta } from "@/components/layout/contact-cta";
-import { siteUrl } from "@/content/profile";
+import { profile, siteUrl } from "@/content/profile";
 
 export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const project = getProject(slug);
   if (!project) return {};
-  return { title: project.title, description: project.summary, alternates: { canonical: `/projects/${slug}` }, openGraph: { title: `${project.title} — Huzaifa Sajjad`, description: project.summary, url: `/projects/${slug}` } };
+  return { title: `${project.title} Web Development Case Study`, description: project.summary, alternates: { canonical: `/projects/${slug}` }, openGraph: { title: `${project.title} — Web Development Case Study`, description: project.summary, url: `/projects/${slug}`, type: "article" }, twitter: { card: "summary_large_image", title: `${project.title} — Web Development Case Study`, description: project.summary } };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const projectIndex = projects.findIndex((item) => item.slug === project.slug);
   const related = projects.length > 1 ? projects[(projectIndex + 1) % projects.length] : undefined;
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "CreativeWork", name: project.title, description: project.summary, url: `${siteUrl}/projects/${project.slug}`, creator: { "@type": "Person", name: "Huzaifa Sajjad" } },
+    { "@context": "https://schema.org", "@type": "CreativeWork", "@id": `${siteUrl}/projects/${project.slug}#project`, name: project.title, description: project.summary, url: `${siteUrl}/projects/${project.slug}`, image: project.coverImage ? `${siteUrl}${project.coverImage}` : undefined, creator: { "@id": `${siteUrl}/#person`, name: profile.name } },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "Projects", item: `${siteUrl}/projects` },
@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {related ? <section className="case-section"><h2>Related project</h2><div><p>Continue with another product from the portfolio.</p><Link className="button" href={`/projects/${related.slug}`}>Explore {related.title}</Link></div></section> : null}
         </div>
       </article>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <ContactCta />
     </>
   );

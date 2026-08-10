@@ -3,7 +3,7 @@ import { Code2, Mail, MapPin, MessageCircle } from "lucide-react";
 import { profile } from "@/content/profile";
 import { ContactForm } from "@/components/contact/contact-form";
 
-export const metadata: Metadata = { title: "Contact", description: "Contact Huzaifa Sajjad about a web application, mobile product, backend system, contract or remote role.", alternates: { canonical: "/contact" } };
+export const metadata: Metadata = { title: "Hire a Freelance Full-Stack Developer", description: "Contact Huzaifa Sajjad to discuss web development, e-commerce, AI automation, SEO, deployment, bot or browser extension requirements.", alternates: { canonical: "/contact" }, openGraph: { title: "Hire Huzaifa Sajjad for Your Development Project", description: "Share your project requirements and receive a clear next step.", url: "/contact", type: "website" } };
 
 export default function ContactPage() {
   return (

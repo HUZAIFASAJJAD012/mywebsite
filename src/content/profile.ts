@@ -9,12 +9,15 @@ export const profile = {
   githubUrl: "https://github.com/huzaifasajjad012",
   location: "Pakistan",
   availability: "Available for selected freelance, contract and remote opportunities",
-  heroTitle: "Full-stack products, built from interface to infrastructure.",
+  heroTitle: "Freelance full-stack web development,",
+  heroTitleAccent: "from interface to infrastructure.",
   heroCopy:
-    "I’m Huzaifa Sajjad, a Full-Stack Developer, Mobile App Developer and Web Team Lead. I build scalable digital products for businesses, startups and agencies — combining modern interfaces, secure backend systems and dependable production delivery.",
+    "I’m Huzaifa Sajjad, a freelance Full-Stack Developer, Mobile App Developer and Web Team Lead. I build SEO-ready business websites, e-commerce platforms, AI automations and custom applications for clients worldwide.",
   about:
     "I enjoy turning complex requirements into clear, reliable digital products. My work covers the complete delivery path — interface implementation, backend architecture, mobile experiences, integrations, deployment and team coordination.",
   languages: ["English: Fluent", "Urdu: Native", "Pushto: Conversational"],
 } as const;
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.huzaifasajjaddev.online";
+
+export const siteUrl = configuredSiteUrl.replace(/\/$/, "");

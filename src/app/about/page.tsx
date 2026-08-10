@@ -6,7 +6,7 @@ import { ExperienceTimeline } from "@/components/experience/experience-timeline"
 import { ContactCta } from "@/components/layout/contact-cta";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export const metadata: Metadata = { title: "About", description: "About Huzaifa Sajjad’s product-building philosophy, leadership approach and development experience.", alternates: { canonical: "/about" } };
+export const metadata: Metadata = { title: "About a Full-Stack Developer", description: "Meet Huzaifa Sajjad, a full-stack and mobile developer in Pakistan delivering web applications, backend systems and remote client projects worldwide.", alternates: { canonical: "/about" }, openGraph: { title: "About Huzaifa Sajjad — Full-Stack Developer", description: "Development experience, product approach and technical background.", url: "/about", type: "profile" } };
 const principles = ["Build for the real user", "Keep architecture understandable", "Make performance part of design", "Communicate risks early", "Prefer dependable delivery over unnecessary complexity"];
 
 export default function AboutPage() {
