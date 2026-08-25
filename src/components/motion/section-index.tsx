@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { m } from "motion/react";
 
-const sections = [{ id: "work", label: "Work" }, { id: "expertise", label: "Expertise" }, { id: "experience", label: "Experience" }, { id: "about", label: "About" }];
+const sections = [{ id: "products", label: "Products" }, { id: "work", label: "Work" }, { id: "expertise", label: "Expertise" }, { id: "experience", label: "Experience" }, { id: "about", label: "About" }];
 
 export function SectionIndex() {
   const [active, setActive] = useState("work");

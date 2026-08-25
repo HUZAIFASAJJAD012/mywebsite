@@ -9,6 +9,7 @@ import { profile } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
 const links = [
+  ["Products", "/#products"],
   ["Work", "/#work"],
   ["Expertise", "/#expertise"],
   ["Experience", "/#experience"],
@@ -36,7 +37,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const sections = ["work", "expertise", "experience", "about"].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
+    const sections = ["products", "work", "expertise", "experience", "about"].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) setActiveSection(visible.target.id);

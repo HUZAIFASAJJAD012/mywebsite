@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/hero/hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { FeaturedProject } from "@/components/projects/featured-project";
+import { ProductShowcase } from "@/components/products/product-showcase";
 import { CapabilitySystem } from "@/components/capabilities/capability-system";
 import { CapabilityProof } from "@/components/capabilities/capability-proof";
 import { ExperienceTimeline } from "@/components/experience/experience-timeline";
@@ -34,9 +35,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section product-section" id="products">
+        <div className="container">
+          <SectionHeading eyebrow="My product" title="A focused tool, built for honest downloads." copy="Lynvado turns an authorized public media link into a clear choice of source-available formats and a secure temporary download." />
+          <ProductShowcase />
+        </div>
+      </section>
+
       <section className="section" id="work">
         <div className="container">
-          <SectionHeading eyebrow="Selected work" title="A product shaped for real use." copy="A complete restaurant experience delivered across interface, multilingual content, reservations and direct customer communication." />
+          <SectionHeading eyebrow="Selected work" title="Products shaped for real use." copy="Digital experiences delivered across interface design, content structure, responsive development and production deployment." />
           <div className="featured-list">{featuredProjects.map((project, index) => <FeaturedProject project={project} index={index} key={project.slug} />)}</div>
           <div style={{ marginTop: "2.5rem" }}><Link className="button" href="/projects">View every project <ArrowUpRight size={17} /></Link></div>
         </div>

@@ -12,8 +12,12 @@ describe("project content", () => {
     }
   });
 
-  it("keeps the verified project featured on the homepage", () => {
-    expect(featuredProjects).toHaveLength(1);
-    expect(featuredProjects[0]?.slug).toBe("al-khalifa-signature");
+  it("keeps the verified projects featured on the homepage", () => {
+    expect(featuredProjects.map(({ slug }) => slug)).toEqual([
+      "al-khalifa-signature",
+      "luex-healthcare",
+      "hollywood-nutritions",
+      "lynvado",
+    ]);
   });
 });
