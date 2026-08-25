@@ -8,6 +8,8 @@ import { ContactCommandLauncher } from "@/components/layout/contact-command-laun
 import { IntroductionVideo } from "@/components/layout/introduction-video";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
+import { AnalyticsEvents } from "@/components/analytics/analytics-events";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { profile, siteUrl } from "@/content/profile";
 import { personJsonLd, websiteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
@@ -18,8 +20,8 @@ const body = Manrope({ subsets: ["latin"], variable: "--font-body", display: "sw
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: profile.name,
-  title: { default: "Huzaifa Sajjad | Freelance Full-Stack Web Developer", template: "%s — Huzaifa Sajjad" },
-  description: "Hire Huzaifa Sajjad for freelance web development, e-commerce, AI automation, technical SEO, deployment, bots and browser extensions worldwide.",
+  title: { default: "Huzaifa Sajjad | Freelance Full-Stack Developer", template: "%s — Huzaifa Sajjad" },
+  description: "Huzaifa Sajjad is a freelance full-stack developer building fast websites, web applications, mobile apps, APIs and scalable digital products worldwide.",
   authors: [{ name: profile.name, url: siteUrl }],
   creator: profile.name,
   publisher: profile.name,
@@ -35,8 +37,8 @@ export const metadata: Metadata = {
   ],
   formatDetection: { email: false, address: false, telephone: false },
   alternates: { canonical: "/" },
-  openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy, url: "/", siteName: profile.name, locale: "en_US" },
-  twitter: { card: "summary_large_image", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy },
+  openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Developer`, description: profile.heroCopy, url: "/", siteName: profile.name, locale: "en_US" },
+  twitter: { card: "summary_large_image", title: `${profile.name} | Freelance Full-Stack Developer`, description: profile.heroCopy },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
@@ -59,9 +61,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <SiteFooter />
           <IntroductionVideo />
           <ContactCommandLauncher />
+          <AnalyticsEvents />
         </MotionProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
-        <Analytics /><SpeedInsights />
+        <Analytics /><SpeedInsights /><GoogleAnalytics />
       </body>
     </html>
   );

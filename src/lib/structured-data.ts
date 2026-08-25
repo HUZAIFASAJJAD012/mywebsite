@@ -42,3 +42,16 @@ export const profilePageJsonLd = {
   mainEntity: { "@id": `${siteUrl}/#person` },
   isPartOf: { "@id": `${siteUrl}/#website` },
 };
+
+export function createBreadcrumbJsonLd(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}

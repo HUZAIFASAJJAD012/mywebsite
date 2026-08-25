@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { featuredProjects, projects } from "./projects";
+import { gigs } from "./gigs";
 
 describe("project content", () => {
   it("uses unique slugs and valid external URLs", () => {
@@ -18,5 +19,13 @@ describe("project content", () => {
       "luex-healthcare",
       "hollywood-nutritions",
     ]);
+  });
+
+  it("links every case study only to existing service pages", () => {
+    const serviceSlugs = new Set(gigs.map(({ slug }) => slug));
+    for (const project of projects) {
+      expect(project.seoTitle?.length).toBeGreaterThan(20);
+      for (const serviceSlug of project.serviceSlugs ?? []) expect(serviceSlugs.has(serviceSlug)).toBe(true);
+    }
   });
 });

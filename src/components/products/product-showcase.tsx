@@ -33,7 +33,7 @@ export function ProductShowcase() {
             </div>
             <div className="product-actions">
               {product.liveUrl ? (
-                <a className="button button-primary" href={product.liveUrl} target="_blank" rel="noopener noreferrer">
+                <a className="button button-primary" href={product.liveUrl} target="_blank" rel="noopener noreferrer" data-analytics-event="project_live_click" data-analytics-context={product.slug}>
                   Open Lynvado <ExternalLink size={16} />
                 </a>
               ) : null}

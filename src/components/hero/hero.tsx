@@ -15,7 +15,7 @@ export function Hero() {
           <div className="hero-enter enter-four">
             <div className="hero-actions">
               <Link className="button button-primary" href="#work">View selected work <ArrowRight size={18} /></Link>
-              <Link className="button" href="/gigs">View services</Link>
+              <Link className="button" href="/services">View services</Link>
             </div>
           </div>
         </div>

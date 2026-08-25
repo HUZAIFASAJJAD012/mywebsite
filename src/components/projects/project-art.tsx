@@ -8,7 +8,7 @@ import type { Project } from "@/content/projects";
 export function ProjectArt({ project, className }: { project: Project; className?: string }) {
   const reduceMotion = useReducedMotion();
   return (
-    <m.div className={cn("project-art", project.coverTone, className)} role="img" aria-label={`${project.title} project preview artwork`} layoutId={reduceMotion ? undefined : `project-cover-${project.slug}`} style={reduceMotion ? undefined : { viewTransitionName: `project-cover-${project.slug}` }} transition={{ type: "spring", stiffness: 180, damping: 24, mass: .9 }}>
+    <m.div className={cn("project-art", project.coverTone, className)} role="img" aria-label={`${project.title} ${project.category.join(" and ")} project preview by Huzaifa Sajjad`} layoutId={reduceMotion ? undefined : `project-cover-${project.slug}`} style={reduceMotion ? undefined : { viewTransitionName: `project-cover-${project.slug}` }} transition={{ type: "spring", stiffness: 180, damping: 24, mass: .9 }}>
       <div className={cn("browser-mockup", project.coverImage && "has-project-cover")} aria-hidden="true">
         <div className="browser-bar"><span /><span /><span /></div>
         {project.coverImage ? (

@@ -14,7 +14,7 @@ export const profile = {
   heroTitle: "Freelance full-stack web development,",
   heroTitleAccent: "from interface to infrastructure.",
   heroCopy:
-    "I’m Huzaifa Sajjad, a freelance Full-Stack Developer, Mobile App Developer and Web Team Lead. I build SEO-ready business websites, e-commerce platforms, AI automations and custom applications for clients worldwide.",
+    "I’m Huzaifa Sajjad, a freelance full-stack developer based in Pakistan and working with businesses and teams worldwide. I build websites, web applications, mobile apps, APIs and production-ready software using Next.js, React, Node.js, NestJS and PostgreSQL.",
   about:
     "I enjoy turning complex requirements into clear, reliable digital products. My work covers the complete delivery path — interface implementation, backend architecture, mobile experiences, integrations, deployment and team coordination.",
   languages: ["English: Fluent", "Urdu: Native", "Pushto: Conversational"],

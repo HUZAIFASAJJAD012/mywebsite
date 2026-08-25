@@ -5,11 +5,14 @@ const validMessage = {
   name: "Project Owner",
   email: "owner@example.com",
   company: "Example Studio",
-  projectType: "New web application",
-  projectStage: "Planning and design",
-  budget: "$5,000–$10,000",
+  phone: "+92 300 0000000",
+  projectType: "Web Application",
+  timeline: "1–2 months",
+  budget: "$5,000 – $10,000",
+  preferredContact: "Email",
   message: "We need a production-ready product website and application flow.",
   website: "",
+  startedAt: Date.now() - 5000,
 };
 
 describe("contactSchema", () => {

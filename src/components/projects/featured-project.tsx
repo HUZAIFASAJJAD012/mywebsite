@@ -15,7 +15,7 @@ export function FeaturedProject({ project, index }: { project: Project; index: n
           <div className="tag-list">{project.stack.map((item) => <span className="tag" key={item}>{item}</span>)}</div>
           <div className="project-actions">
             <Link className="text-link" href={`/projects/${project.slug}`}>View case study <ArrowUpRight size={17} /></Link>
-            {project.liveUrl ? <a className="text-link" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live website <ExternalLink size={15} /></a> : null}
+            {project.liveUrl ? <a className="text-link" href={project.liveUrl} target="_blank" rel="noopener noreferrer" data-analytics-event="project_live_click" data-analytics-context={project.slug}>Live website <ExternalLink size={15} /></a> : null}
           </div>
         </div>
         <ProjectArt project={project} />

@@ -13,7 +13,7 @@ const links = [
   ["Work", "/#work"],
   ["Expertise", "/#expertise"],
   ["Experience", "/#experience"],
-  ["Services", "/gigs"],
+  ["Services", "/services"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ] as const;
@@ -68,7 +68,7 @@ export function SiteHeader() {
 
   function isActive(href: string) {
     if (href.startsWith("/#")) return pathname === "/" && activeSection === href.slice(2);
-    return pathname === href;
+    return pathname === href || (href === "/services" && pathname.startsWith("/services/"));
   }
 
   return (
@@ -84,7 +84,7 @@ export function SiteHeader() {
           </div>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => <Link className={cn("nav-link", isActive(href) && "active")} href={href} key={label}>{label}{isActive(href) ? <m.span className="active-nav" layoutId="active-nav" transition={{ type: "spring", stiffness: 420, damping: 34 }} /> : null}</Link>)}
-            <Link className="button button-primary" href="/contact">Start a project <ArrowRight size={18} /></Link>
+            <Link className="button button-primary" href="/contact" data-analytics-event="contact_click" data-analytics-context="header">Start a project <ArrowRight size={18} /></Link>
           </nav>
           <button ref={openButtonRef} className="menu-toggle" type="button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
             <Menu size={20} />

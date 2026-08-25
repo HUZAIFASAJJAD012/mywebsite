@@ -55,6 +55,7 @@ export default function HomePage() {
           <SectionHeading eyebrow="Capability system" title="The whole product, connected." copy="From the interface people use to the infrastructure behind it, each layer is designed to work as one dependable system." />
           <CapabilitySystem />
           <CapabilityProof />
+          <div style={{ marginTop: "1.5rem" }}><Link className="text-link" href="/services/full-stack-development">Explore full-stack development <ArrowUpRight size={17} /></Link></div>
         </div>
       </section>
 

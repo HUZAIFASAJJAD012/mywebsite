@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/gigs",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/services/full-ecommerce-development",
+        destination: "/services/ecommerce-development",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "huzaifasajjaddev.online" }],
         destination: "https://www.huzaifasajjaddev.online/:path*",

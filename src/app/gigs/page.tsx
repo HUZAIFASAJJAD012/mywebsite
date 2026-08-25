@@ -1,44 +1,49 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Blocks, Bot, Box, Check, CloudUpload, MessageCircle, PanelsTopLeft, SearchCheck, ShieldCheck, ShoppingCart, Sparkles } from "lucide-react";
+import { ArrowRight, Blocks, Bot, Box, Braces, Check, CloudUpload, Code2, Layers3, MessageCircle, PanelsTopLeft, Rocket, SearchCheck, ShieldCheck, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
 import { gigs, gigFaqs, type GigIcon } from "@/content/gigs";
 import { profile, siteUrl } from "@/content/profile";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development, SEO & AI Automation Services",
-  description: "Hire Huzaifa Sajjad for business landing pages from $100, e-commerce development from $2,000, AI automation, technical SEO, deployment, bots and browser extensions.",
-  keywords: ["freelance web developer", "landing page developer", "ecommerce developer", "AI automation developer", "technical SEO services", "website deployment", "bot developer", "browser extension developer"],
-  alternates: { canonical: "/gigs" },
+  title: "Freelance Full-Stack Development Services",
+  description: "Hire Huzaifa Sajjad for full-stack development, custom websites, Next.js applications, mobile apps, backend APIs, e-commerce, MVPs and automation.",
+  keywords: ["freelance full stack developer", "web developer", "Next.js developer", "mobile app developer", "backend API developer", "ecommerce developer", "MVP developer", "AI automation developer"],
+  alternates: { canonical: "/services" },
   openGraph: {
     type: "website",
-    title: "Web Development, SEO & AI Automation Services",
-    description: "Practical web development and automation services for businesses—from focused landing pages to full e-commerce builds.",
-    url: "/gigs",
+    title: "Full-Stack, Web & Mobile Development Services",
+    description: "Production-minded development services for websites, applications, mobile products, APIs, e-commerce and MVPs.",
+    url: "/services",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development, SEO & AI Automation Services",
-    description: "Landing pages, e-commerce, AI automation, SEO, deployment, bots and browser extensions.",
+    title: "Full-Stack, Web & Mobile Development Services",
+    description: "Websites, applications, mobile products, APIs, e-commerce, MVPs and practical automation.",
   },
 };
 
 const icons: Record<GigIcon, LucideIcon> = {
+  fullstack: Layers3,
+  web: Code2,
+  backend: Braces,
+  mobile: Smartphone,
   landing: PanelsTopLeft,
   commerce: ShoppingCart,
   automation: Bot,
   seo: SearchCheck,
   deployment: CloudUpload,
   bots: Blocks,
+  mvp: Rocket,
 };
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "@id": `${siteUrl}/gigs#page`,
+  "@id": `${siteUrl}/services#page`,
   name: `${profile.name} Web Development Services`,
-  url: `${siteUrl}/gigs`,
-  description: "Freelance web development, e-commerce, AI automation, SEO, deployment, bot and browser extension services.",
+  url: `${siteUrl}/services`,
+  description: "Freelance full-stack, web, mobile, backend, e-commerce, MVP, automation, SEO and deployment services.",
   mainEntity: {
     "@type": "ItemList",
     name: "Development and digital services",
@@ -72,11 +77,11 @@ export default function GigsPage() {
         <div className="container gigs-hero-grid">
           <div className="gigs-hero-copy">
             <span className="eyebrow">Freelance services</span>
-            <h1>Freelance web development, SEO and AI <span>automation services.</span></h1>
-            <p>Hire a full-stack developer for business landing pages, custom e-commerce websites, AI workflow automation, technical SEO, production deployment, bots and browser extensions.</p>
+            <h1>Full-stack, web and mobile <span>development services.</span></h1>
+            <p>Work with Huzaifa Sajjad on custom websites, Next.js applications, mobile products, backend APIs, e-commerce platforms, startup MVPs and practical automation.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">Explore services <ArrowRight size={17} /></a>
-              <a className="button" href={whatsappHref} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} /> Discuss on WhatsApp</a>
+              <a className="button" href={whatsappHref} target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-context="services"><MessageCircle size={17} /> Discuss on WhatsApp</a>
             </div>
           </div>
           <aside className="gigs-hero-summary" aria-label="Popular service starting prices">
@@ -116,7 +121,7 @@ export default function GigsPage() {
                   <p>{gig.description}</p>
                   <strong className="gig-price">{gig.priceLabel}</strong>
                   <ul>{gig.deliverables.map((item) => <li key={item}><Check size={16} aria-hidden="true" /> {item}</li>)}</ul>
-                  <div className="gig-actions"><Link className="text-link" href={`/services/${gig.slug}`}>View service details <ArrowRight size={16} /></Link><a href={inquiryHref} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+                  <div className="gig-actions"><Link className="text-link" href={`/services/${gig.slug}`}>View service details <ArrowRight size={16} /></Link><a href={inquiryHref} target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-context={gig.slug}>WhatsApp</a></div>
                 </article>
               );
             })}
@@ -153,8 +158,8 @@ export default function GigsPage() {
           <h2 id="gigs-cta-title">Tell me what you want to build.</h2>
           <p>Send your requirements, preferred timeline and any useful references. I’ll reply with the clearest next step.</p>
           <div className="center-actions">
-            <Link className="button button-primary" href="/contact">Send project details <ArrowRight size={17} /></Link>
-            <a className="button" href={whatsappHref} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} /> WhatsApp</a>
+            <Link className="button button-primary" href="/contact" data-analytics-event="contact_click" data-analytics-context="services">Send project details <ArrowRight size={17} /></Link>
+            <a className="button" href={whatsappHref} target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-context="services"><MessageCircle size={17} /> WhatsApp</a>
           </div>
         </div>
       </section>

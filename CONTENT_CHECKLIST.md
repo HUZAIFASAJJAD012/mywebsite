@@ -12,4 +12,4 @@ These items require verified source assets or information before launch:
 - [ ] Verified outcomes where evidence is available
 - [ ] Final project-specific social preview images
 
-The current CSS browser artwork is a development fallback and must be replaced by verified local project media before production launch.
+Project cards use the supplied local screenshots. Replace them only when newer verified desktop or mobile captures are available.

@@ -17,7 +17,7 @@ export default async function ServiceOpenGraphImage({ params }: { params: Promis
         <div style={{ marginTop: 30, fontSize: 76, lineHeight: .98, letterSpacing: -4, fontWeight: 700 }}>{gig.title}</div>
         <div style={{ marginTop: 28, color: "#cbd5e1", fontSize: 27, lineHeight: 1.4 }}>{gig.description}</div>
       </div>
-      <div style={{ marginLeft: "auto", width: 250, height: 250, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "2px solid rgba(129,140,248,.55)", borderRadius: 50, background: "linear-gradient(145deg, #19224a, #090f25)", boxShadow: "0 0 90px rgba(99,102,241,.35)" }}><span style={{ color: "#94a3b8", fontSize: 18, textTransform: "uppercase", letterSpacing: 2 }}>Starts at</span><strong style={{ marginTop: 14, fontSize: 52, letterSpacing: -3 }}>{gig.priceLabel.replace("From ", "")}</strong><span style={{ marginTop: 10, color: "#a5b4fc", fontSize: 18 }}>USD</span></div>
+      <div style={{ marginLeft: "auto", width: 250, height: 250, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "2px solid rgba(129,140,248,.55)", borderRadius: 50, background: "linear-gradient(145deg, #19224a, #090f25)", boxShadow: "0 0 90px rgba(99,102,241,.35)" }}><span style={{ color: "#94a3b8", fontSize: 18, textTransform: "uppercase", letterSpacing: 2 }}>{gig.startingPrice ? "Starts at" : "Project scope"}</span><strong style={{ marginTop: 14, fontSize: gig.startingPrice ? 52 : 38, letterSpacing: -3 }}>{gig.startingPrice ? gig.priceLabel.replace("From ", "") : "Let’s talk"}</strong><span style={{ marginTop: 10, color: "#a5b4fc", fontSize: 18 }}>{gig.startingPrice ? "USD" : "Clear quote first"}</span></div>
     </div>,
     size,
   );

@@ -1,6 +1,7 @@
 export type Project = {
   slug: string;
   title: string;
+  seoTitle?: string;
   shortDescription: string;
   summary: string;
   category: string[];
@@ -17,12 +18,14 @@ export type Project = {
   responsibilities: string[];
   highlights?: string[];
   status: "live" | "private" | "archived";
+  serviceSlugs?: string[];
 };
 
 export const projects: Project[] = [
   {
     slug: "al-khalifa-signature",
     title: "Al Khalifa Signature",
+    seoTitle: "Al Khalifa Restaurant Website Case Study",
     shortDescription: "A modern multilingual restaurant website for an Arabic cuisine destination in Johor Bahru, Malaysia.",
     summary: "A clean, responsive and professional restaurant website that helps customers explore signature dishes, browse the menu, discover event services, reserve tables and connect directly.",
     category: ["Full Stack"],
@@ -43,10 +46,12 @@ export const projects: Project[] = [
       "Delivered responsive behaviour across screen sizes",
     ],
     status: "live",
+    serviceSlugs: ["web-development", "small-business-websites", "full-stack-development"],
   },
   {
     slug: "luex-healthcare",
     title: "Luex Healthcare",
+    seoTitle: "Luex Healthcare Website Development Case Study",
     shortDescription: "A modern healthcare website that brings products, science, global presence and useful resources into one clear digital experience.",
     summary: "A responsive corporate healthcare platform designed and developed with a calm editorial interface, structured content pathways and accessible navigation across the organisation’s key areas.",
     category: ["Web Development", "Healthcare"],
@@ -67,10 +72,12 @@ export const projects: Project[] = [
       "Prepared and deployed the production website on Vercel",
     ],
     status: "live",
+    serviceSlugs: ["nextjs-development", "web-development", "full-stack-development"],
   },
   {
     slug: "hollywood-nutritions",
     title: "Hollywood Nutritions",
+    seoTitle: "Hollywood Nutritions E-commerce Case Study",
     shortDescription: "A premium wellness storefront with product discovery, goal-based browsing, bundles and educational content for confident everyday choices.",
     summary: "A responsive health and wellness e-commerce experience that connects product browsing, detailed ingredient information, curated bundles and editorial resources in one cohesive platform.",
     category: ["E-Commerce", "Web Development"],
@@ -91,10 +98,12 @@ export const projects: Project[] = [
       "Prepared and deployed the production website on Vercel",
     ],
     status: "live",
+    serviceSlugs: ["ecommerce-development", "nextjs-development", "web-development"],
   },
   {
     slug: "lynvado",
     title: "Lynvado",
+    seoTitle: "Lynvado Web Application Development Case Study",
     shortDescription: "A secure public-media download utility that surfaces the formats a source actually provides and delivers files through temporary links.",
     summary: "A responsive web application for checking authorized public media links, comparing native source formats and completing downloads through a clear, privacy-conscious workflow.",
     category: ["Web Application", "Media Tool"],
@@ -121,6 +130,7 @@ export const projects: Project[] = [
       "No account required",
     ],
     status: "live",
+    serviceSlugs: ["full-stack-development", "nextjs-development", "mvp-development"],
   },
 ];
 

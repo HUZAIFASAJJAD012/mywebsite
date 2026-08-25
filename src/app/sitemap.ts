@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, lastModified, changeFrequency: "monthly", priority: 1, images: [`${siteUrl}/myprofile.png`] },
     { url: `${siteUrl}/about`, lastModified, changeFrequency: "yearly", priority: .9, images: [`${siteUrl}/myprofile.png`] },
     { url: `${siteUrl}/projects`, lastModified, changeFrequency: "monthly", priority: .9 },
-    { url: `${siteUrl}/gigs`, lastModified, changeFrequency: "monthly", priority: .9 },
+    { url: `${siteUrl}/services`, lastModified, changeFrequency: "monthly", priority: .9 },
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: .7 },
   ];
   const servicePages: MetadataRoute.Sitemap = gigs.map((gig) => ({
