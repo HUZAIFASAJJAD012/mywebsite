@@ -18,7 +18,9 @@ export function SiteFooter() {
             <strong>Connect</strong>
             <a href={`mailto:${profile.email}`}>Email</a>
             <a href={profile.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={profile.githubUrl} target="_blank" rel="me noopener noreferrer">GitHub</a>
+            {profile.linkedinUrl ? <a href={profile.linkedinUrl} target="_blank" rel="me noopener noreferrer">LinkedIn</a> : null}
+            <a href={profile.freelancerUrl} target="_blank" rel="me noopener noreferrer">Freelancer</a>
           </div>
         </div>
         <div className="footer-bottom">

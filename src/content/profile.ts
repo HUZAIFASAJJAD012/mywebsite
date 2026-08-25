@@ -7,6 +7,8 @@ export const profile = {
   phoneDisplay: "+92 341 3332077",
   whatsappUrl: "https://wa.me/923413332077",
   githubUrl: "https://github.com/huzaifasajjad012",
+  freelancerUrl: "https://www.freelancer.com/u/huzaifasajjad12",
+  linkedinUrl: process.env.NEXT_PUBLIC_LINKEDIN_URL?.trim() || undefined,
   location: "Pakistan",
   availability: "Available for projects",
   heroTitle: "Freelance full-stack web development,",

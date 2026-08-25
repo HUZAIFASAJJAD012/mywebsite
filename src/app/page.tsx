@@ -23,7 +23,7 @@ const process = [
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-page">
       <SectionIndex />
       <Hero />
       <section className="credibility" aria-label="Professional credibility">
@@ -93,6 +93,6 @@ export default function HomePage() {
         </div>
       </section>
       <ContactCta />
-    </>
+    </div>
   );
 }

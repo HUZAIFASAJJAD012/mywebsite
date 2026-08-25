@@ -9,7 +9,7 @@ import { IntroductionVideo } from "@/components/layout/introduction-video";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { profile, siteUrl } from "@/content/profile";
-import { personJsonLd, profilePageJsonLd, websiteJsonLd } from "@/lib/structured-data";
+import { personJsonLd, websiteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
@@ -24,6 +24,16 @@ export const metadata: Metadata = {
   creator: profile.name,
   publisher: profile.name,
   category: "technology",
+  keywords: [
+    "Huzaifa Sajjad",
+    "HuzaifaSajjad",
+    "Huzaifa Sajjad developer",
+    "Huzaifa Sajjad full-stack developer",
+    "freelance web developer Pakistan",
+    "Next.js developer Pakistan",
+    "mobile app developer Pakistan",
+  ],
+  formatDetection: { email: false, address: false, telephone: false },
   alternates: { canonical: "/" },
   openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy, url: "/", siteName: profile.name, locale: "en_US" },
   twitter: { card: "summary_large_image", title: `${profile.name} | Freelance Full-Stack Web Developer`, description: profile.heroCopy },
@@ -50,7 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <IntroductionVideo />
           <ContactCommandLauncher />
         </MotionProvider>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, profilePageJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
         <Analytics /><SpeedInsights />
       </body>
     </html>

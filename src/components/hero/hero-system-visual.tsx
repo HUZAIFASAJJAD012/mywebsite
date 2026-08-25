@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, useState, type PointerEvent } from "react";
-import { Box, Cloud, Code2, MoreHorizontal, Smartphone } from "lucide-react";
+import { Box, CheckCircle2, Cloud, Code2, Smartphone } from "lucide-react";
 import { m, useMotionTemplate, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { motionTokens } from "@/lib/motion";
+
+const routes = [
+  { className: "map-station station-frontend", label: "Interface", title: "Frontend", detail: "React · Next.js", icon: Code2 },
+  { className: "map-station station-backend", label: "Systems", title: "Backend", detail: "NestJS · APIs", icon: Box },
+  { className: "map-station station-mobile", label: "Experience", title: "Mobile", detail: "React Native", icon: Smartphone },
+  { className: "map-station station-cloud", label: "Delivery", title: "Cloud", detail: "AWS · Docker", icon: Cloud },
+];
+
+const stack = ["React", "Next.js", "TypeScript", "NestJS", "Postgres", "AWS"];
 
 export function HeroSystemVisual() {
   const reducedMotion = useReducedMotion();
@@ -14,59 +23,97 @@ export function HeroSystemVisual() {
   const spotY = useMotionValue(220);
   const smoothX = useSpring(pointerX, motionTokens.spring.pointer);
   const smoothY = useSpring(pointerY, motionTokens.spring.pointer);
-  const rotateY = useTransform(smoothX, [-.5, .5], [-2.5, 2.5]);
-  const rotateX = useTransform(smoothY, [-.5, .5], [2.5, -2.5]);
-  const spotlight = useMotionTemplate`radial-gradient(300px circle at ${spotX}px ${spotY}px, rgba(37, 99, 235, .13), transparent 72%)`;
+  const rotateY = useTransform(smoothX, [-.5, .5], [-1.8, 1.8]);
+  const rotateX = useTransform(smoothY, [-.5, .5], [1.8, -1.8]);
+  const spotlight = useMotionTemplate`radial-gradient(280px circle at ${spotX}px ${spotY}px, rgba(34, 211, 238, .09), transparent 72%)`;
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
     const update = () => setCapable(media.matches && !reducedMotion && !document.hidden);
-    update(); media.addEventListener("change", update); document.addEventListener("visibilitychange", update);
-    return () => { media.removeEventListener("change", update); document.removeEventListener("visibilitychange", update); };
+    update();
+    media.addEventListener("change", update);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      media.removeEventListener("change", update);
+      document.removeEventListener("visibilitychange", update);
+    };
   }, [reducedMotion]);
 
   function move(event: PointerEvent<HTMLDivElement>) {
     if (!capable) return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - bounds.left; const y = event.clientY - bounds.top;
-    spotX.set(x); spotY.set(y); pointerX.set(x / bounds.width - .5); pointerY.set(y / bounds.height - .5);
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    spotX.set(x);
+    spotY.set(y);
+    pointerX.set(x / bounds.width - .5);
+    pointerY.set(y / bounds.height - .5);
   }
 
-  function reset() { pointerX.set(0); pointerY.set(0); }
+  function reset() {
+    pointerX.set(0);
+    pointerY.set(0);
+  }
 
   return (
-    <m.div className="product-canvas" onPointerMove={move} onPointerLeave={reset} style={{ backgroundImage: capable ? spotlight : undefined }} aria-label="Connected system architecture showing frontend, backend, mobile, cloud and technology stack">
-      <div className="blueprint-grid grid-left" aria-hidden="true" /><div className="blueprint-grid grid-right" aria-hidden="true" />
-      <svg className="canvas-connectors" viewBox="0 0 860 680" aria-hidden="true">
-        <m.path d="M182 82 H310 Q328 82 328 100 V162" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .12 }} />
-        <m.path d="M678 102 H580 Q562 102 562 120 V162" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .17 }} />
-        <m.path d="M170 490 H236 Q252 490 252 472 V414" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .22 }} />
-        <m.path d="M686 512 H622 Q604 512 604 494 V414" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .42, delay: .27 }} />
-      </svg>
+    <div
+      className="product-canvas"
+      onPointerMove={move}
+      onPointerLeave={reset}
+      role="img"
+      aria-label="Huzaifa Sajjad product delivery map connecting frontend, backend, mobile and cloud engineering"
+    >
+      <m.div
+        className="delivery-map"
+        style={capable ? { rotateX, rotateY, transformPerspective: 1400, backgroundImage: spotlight } : undefined}
+        aria-hidden="true"
+      >
+        <header className="delivery-map-head">
+          <div className="map-identity"><b>HS</b><span>Product delivery map</span></div>
+          <div className="map-status"><i /> System online</div>
+        </header>
 
-      <div className="arch-node node-frontend" aria-hidden="true"><Code2 /><div><strong>Frontend</strong><small>React · Next.js · TypeScript</small></div></div>
-      <div className="arch-node node-backend" aria-hidden="true"><Box /><div><strong>Backend</strong><small>Node.js · NestJS · APIs</small></div></div>
-      <div className="arch-node node-mobile" aria-hidden="true"><Smartphone /><div><strong>Mobile</strong><small>React Native · Flutter</small></div></div>
-      <div className="arch-node node-cloud" aria-hidden="true"><Cloud /><div><strong>Cloud</strong><small>AWS · Docker · CI/CD</small></div></div>
+        <div className="map-viewport">
+          <div className="map-axis axis-input">Build layers</div>
+          <div className="map-axis axis-output">Production</div>
+          <svg className="delivery-routes" viewBox="0 0 720 430" preserveAspectRatio="none">
+            <m.path className="route route-interface" d="M118 92 H265 C306 92 311 178 356 214" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .55, delay: .08 }} />
+            <m.path className="route route-systems" d="M602 92 H455 C414 92 409 178 364 214" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .55, delay: .14 }} />
+            <m.path className="route route-mobile" d="M118 338 H265 C306 338 311 250 356 216" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .55, delay: .2 }} />
+            <m.path className="route route-cloud" d="M602 338 H455 C414 338 409 250 364 216" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .55, delay: .26 }} />
+            <path className="route route-pulse" d="M360 214 V392 H618" />
+            <g className="route-stops">
+              <circle cx="118" cy="92" r="5" /><circle cx="602" cy="92" r="5" />
+              <circle cx="118" cy="338" r="5" /><circle cx="602" cy="338" r="5" />
+              <circle cx="360" cy="214" r="8" /><circle cx="618" cy="392" r="5" />
+            </g>
+          </svg>
 
-      <m.div className="product-window" style={capable ? { rotateX, rotateY, transformPerspective: 1200 } : undefined} aria-hidden="true">
-        <div className="product-window-bar"><span>System architecture</span><MoreHorizontal size={18} /></div>
-        <div className="product-window-body">
-          <div className="architecture-core">
-            <span className="dashboard-label">Connected product layers</span>
-            <div className="layer-stack"><i /><i /><i /><i /></div>
+          {routes.map(({ className, label, title, detail, icon: Icon }) => (
+            <div className={className} key={title}>
+              <Icon />
+              <div><small>{label}</small><strong>{title}</strong><span>{detail}</span></div>
+            </div>
+          ))}
+
+          <div className="product-interchange">
+            <span>Product</span>
+            <b>HS</b>
+            <small>One connected build</small>
           </div>
-          <div className="architecture-stats">
-            <div><small>Architecture</small><strong>Modular</strong><span className="signal-line" /></div>
-            <div><small>Delivery</small><strong>Tested</strong><span className="signal-line short" /></div>
-            <div><small>Releases</small><strong>Repeatable</strong><span className="signal-bars"><i /><i /><i /><i /><i /></span></div>
-            <div className="system-status"><small>Status</small><span><i /> Production-minded</span></div>
+
+          <div className="delivery-note">
+            <CheckCircle2 />
+            <div><small>Release signal</small><strong>Ready to ship</strong></div>
           </div>
         </div>
-      </m.div>
 
-      <div className="stack-rail" aria-hidden="true"><span>Technology stack</span><div><b>⚛</b><b>N</b><b>TS</b><b>JS</b><b>Nj</b><b>▣</b><b>aws</b></div></div>
-      <div className="canvas-caption" aria-hidden="true"><i /> Building scalable digital products <i /></div>
-    </m.div>
+        <footer className="delivery-map-foot">
+          <span>Core stack</span>
+          <div className="map-stack">{stack.map((item) => <b key={item}>{item}</b>)}</div>
+          <small>04 connected layers</small>
+        </footer>
+      </m.div>
+    </div>
   );
 }

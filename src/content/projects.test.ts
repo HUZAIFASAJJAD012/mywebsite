@@ -17,7 +17,6 @@ describe("project content", () => {
       "al-khalifa-signature",
       "luex-healthcare",
       "hollywood-nutritions",
-      "lynvado",
     ]);
   });
 });

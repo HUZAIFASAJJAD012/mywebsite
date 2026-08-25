@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { profile } from "@/content/profile";
+import { profilePageJsonLd } from "@/lib/structured-data";
 import { ExperienceTimeline } from "@/components/experience/experience-timeline";
 import { ContactCta } from "@/components/layout/contact-cta";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -12,6 +13,7 @@ const principles = ["Build for the real user", "Keep architecture understandable
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd).replace(/</g, "\\u003c") }} />
       <header className="page-hero"><div className="container"><span className="eyebrow">About</span><h1>Engineering with a product mindset.</h1><p>I’m Huzaifa Sajjad, a software engineer focused on building complete digital products across interfaces, backend systems, mobile applications, integrations and production deployment.</p></div></header>
       <section className="section"><div className="container about-grid">
         <div className="sticky-art"><div className="monogram-art profile-art"><Image src="/myprofile.png" alt="Professional portrait of Huzaifa Sajjad" fill sizes="(max-width: 1023px) 100vw, 40vw" /></div></div>

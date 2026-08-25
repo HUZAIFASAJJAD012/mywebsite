@@ -29,6 +29,7 @@ The canonical production origin is `https://www.huzaifasajjaddev.online`. Keep `
 ## Search launch checklist
 
 - Keep `NEXT_PUBLIC_SITE_URL` set to `https://www.huzaifasajjaddev.online` and update `SITE_LAST_MODIFIED` after meaningful content changes.
+- Set `NEXT_PUBLIC_LINKEDIN_URL` to Huzaifa's exact public LinkedIn profile URL. It is then included in the visible footer and Person structured data alongside the verified GitHub and Freelancer profiles.
 - Configure both `www.huzaifasajjaddev.online` and `huzaifasajjaddev.online` in Vercel, then make `www` primary so the bare domain receives a valid certificate and redirects permanently.
 - Add the domain to Google Search Console and Bing Webmaster Tools.
 - Add the provided verification tokens as `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` in the production environment.

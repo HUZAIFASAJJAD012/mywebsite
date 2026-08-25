@@ -101,7 +101,7 @@ export const projects: Project[] = [
     role: ["Full-Stack Web Developer"],
     stack: ["Next.js", "TypeScript", "Secure media processing", "Responsive design"],
     liveUrl: "https://lynvado-web.vercel.app/",
-    featured: true,
+    featured: false,
     coverImage: "/project4.png",
     coverTone: "blue",
     challenge: "Make public-media downloads direct and understandable without overstating available quality, retaining files unnecessarily or implying access to private and protected sources.",
