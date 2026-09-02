@@ -109,7 +109,7 @@ export const projects: Project[] = [
     category: ["Web Application", "Media Tool"],
     role: ["Full-Stack Web Developer"],
     stack: ["Next.js", "TypeScript", "Secure media processing", "Responsive design"],
-    liveUrl: "https://lynvado-web.vercel.app/",
+    liveUrl: "https://www.lynvado.online/",
     featured: false,
     coverImage: "/project4.png",
     coverTone: "blue",
