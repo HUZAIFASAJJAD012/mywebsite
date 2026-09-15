@@ -69,7 +69,7 @@ export const gigs: Gig[] = [
     deliverables: ["Custom responsive website", "Accessible page and navigation system", "Lead or contact journeys", "Technical SEO and launch setup"],
     problems: ["Visitors cannot quickly understand the company or offer", "The current site is slow, difficult to update or poor on mobile", "Important services and contact paths are buried", "The website does not provide a credible foundation for search"],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive design", "Semantic HTML", "Vercel"],
-    projectSlugs: ["al-khalifa-signature", "luex-healthcare"],
+    projectSlugs: ["al-khalifa-signature", "luex-healthcare", "pigs-can-fly"],
     relatedSlugs: ["small-business-websites", "nextjs-development", "seo-services"],
   },
   {
@@ -207,6 +207,7 @@ export const gigs: Gig[] = [
     icon: "landing",
     featured: true,
     deliverables: ["Responsive single-page build", "Clear calls to action", "Contact or WhatsApp journey", "Essential on-page SEO"],
+    projectSlugs: ["pigs-can-fly"],
   },
   {
     slug: "ecommerce-development",

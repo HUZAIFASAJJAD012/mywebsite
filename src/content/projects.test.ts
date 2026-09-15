@@ -21,6 +21,15 @@ describe("project content", () => {
     ]);
   });
 
+  it("includes the Pigs Can Fly interactive project", () => {
+    expect(projects).toContainEqual(expect.objectContaining({
+      slug: "pigs-can-fly",
+      liveUrl: "https://coin-website-fawn.vercel.app/",
+      coverImage: "/project6.png",
+      status: "live",
+    }));
+  });
+
   it("links every case study only to existing service pages", () => {
     const serviceSlugs = new Set(gigs.map(({ slug }) => slug));
     for (const project of projects) {
