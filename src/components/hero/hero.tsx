@@ -8,14 +8,13 @@ export function Hero() {
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-copy-col">
-          <div className="hero-kicker hero-enter enter-one"><b>01</b><i /><span>{profile.name}</span></div>
+          <div className="hero-kicker hero-enter enter-one"><span>Freelance full-stack developer</span><i /><b>Based in Pakistan · Working worldwide</b></div>
           <h1 className="hero-enter enter-two">{profile.heroTitle}<br /><span>{profile.heroTitleAccent}</span></h1>
-          <p className="hero-role-line hero-enter enter-three">I turn complex requirements into <strong>products.</strong></p>
           <p className="hero-copy hero-enter enter-three">{profile.heroCopy}</p>
           <div className="hero-enter enter-four">
             <div className="hero-actions">
-              <Link className="button button-primary" href="#work">View selected work <ArrowRight size={18} /></Link>
-              <Link className="button" href="/services">View services</Link>
+              <Link className="button button-primary" href="/contact">Start a project <ArrowRight size={18} /></Link>
+              <Link className="button" href="#work">View my work</Link>
             </div>
           </div>
         </div>

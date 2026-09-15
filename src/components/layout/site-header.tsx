@@ -9,11 +9,10 @@ import { profile } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
 const links = [
-  ["Products", "/#products"],
-  ["Work", "/#work"],
-  ["Expertise", "/#expertise"],
-  ["Experience", "/#experience"],
+  ["Home", "/"],
+  ["Projects", "/#work"],
   ["Services", "/services"],
+  ["Experience", "/#experience"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ] as const;
@@ -22,7 +21,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>("work");
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const openButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -32,12 +31,14 @@ export function SiteHeader() {
     if (!sentinel) return;
     const observer = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting));
     observer.observe(sentinel);
-    return () => observer.disconnect();
+    const updateTop = () => { if (window.scrollY < 320) setActiveSection(null); };
+    window.addEventListener("scroll", updateTop, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener("scroll", updateTop); };
   }, []);
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const sections = ["products", "work", "expertise", "experience", "about"].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
+    const sections = ["work", "experience"].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) setActiveSection(visible.target.id);
@@ -67,6 +68,7 @@ export function SiteHeader() {
   }, [open]);
 
   function isActive(href: string) {
+    if (href === "/") return pathname === "/" && activeSection === null;
     if (href.startsWith("/#")) return pathname === "/" && activeSection === href.slice(2);
     return pathname === href || (href === "/services" && pathname.startsWith("/services/"));
   }
@@ -78,12 +80,12 @@ export function SiteHeader() {
           <div className="header-identity">
             <Link className="brand" href="/" aria-label="Huzaifa Sajjad, home">
               <span className="brand-mark">{profile.initials}</span>
-              <span className="brand-name">{profile.name}</span>
+              <span className="brand-copy"><span className="brand-name">{profile.name}</span><small>Full-Stack Developer</small></span>
             </Link>
-            <span className="header-availability"><i />{profile.availability}</span>
           </div>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => <Link className={cn("nav-link", isActive(href) && "active")} href={href} key={label}>{label}{isActive(href) ? <m.span className="active-nav" layoutId="active-nav" transition={{ type: "spring", stiffness: 420, damping: 34 }} /> : null}</Link>)}
+            <span className="header-availability"><i />{profile.availability}</span>
             <Link className="button button-primary" href="/contact" data-analytics-event="contact_click" data-analytics-context="header">Start a project <ArrowRight size={18} /></Link>
           </nav>
           <button ref={openButtonRef} className="menu-toggle" type="button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
