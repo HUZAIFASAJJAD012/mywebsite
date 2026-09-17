@@ -1,0 +1,34 @@
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; padding: 145px 0 70px; background: radial-gradient(ellipse at 77% 58%, #132d5750, transparent 48%), #060a13; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px); background-size: 86px 86px; mask-image: linear-gradient(90deg, transparent, #000); }
+.watermark { position: absolute; left: 26%; bottom: 12%; color: #ffffff03; font-size: clamp(110px, 17vw, 290px); font-weight: 900; letter-spacing: -.075em; pointer-events: none; }
+.grid { position: relative; width: min(100% - 96px, 1400px); margin-inline: auto; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; }
+.copy { position: relative; z-index: 3; padding-block: 25px 60px; }
+.eyebrow { margin: 0 0 32px; color: #9ab9ed; font-size: 10px; font-weight: 700; letter-spacing: .24em; }
+.introduction { margin: 0 0 17px; color: #c6cddd; font-size: 18px; }
+.copy h1 { margin: 0; color: #f5f7fc; font-family: var(--font-body), sans-serif; font-size: clamp(43px, 4.6vw, 73px); font-weight: 800; line-height: 1.05; letter-spacing: -.065em; }
+.copy h1 span { color: #8cb5ff; }
+.role { margin: 27px 0 15px; color: #d3ddf0; font-size: 12px; font-weight: 600; letter-spacing: .025em; }
+.description { max-width: 470px; margin: 0; color: #a2aec2; font-size: 14px; line-height: 1.85; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; margin-top: 32px; }
+.primary, .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 52px; font-size: 12px; font-weight: 650; transition: transform .2s, background .2s; }
+.primary { padding: 0 22px; border-radius: 8px; border: 1px solid #8cb5ff80; color: #fff; background: #336ae0; box-shadow: 0 10px 35px #2864e526, inset 0 1px #ffffff30; }
+.primary:hover { background: #427ef6; transform: translateY(-2px); }
+.secondary { color: #c4d0e5; }.secondary:hover { color: #fff; transform: translateX(3px); }
+.location { display: flex; align-items: center; gap: 10px; margin-top: 34px; color: #a0acc0; font-size: 10px; }
+.visual { position: relative; align-self: stretch; min-height: 650px; }
+.orbit { position: absolute; width: 90%; aspect-ratio: 1; top: 14%; left: 8%; border: 1px solid #649aff2b; border-radius: 50%; background: radial-gradient(circle, #4079f310, transparent 65%); box-shadow: 0 0 0 40px #649aff03, 0 0 0 80px #649aff02; }
+.orbit::after { content: ''; position: absolute; top: 16%; left: 11%; width: 7px; height: 7px; border-radius: 50%; background: #98c2ff; box-shadow: 0 0 22px #6098ff; }
+.portrait { position: absolute; inset: -25px -35px -70px -20px; z-index: 1; mask-image: linear-gradient(#000 82%, transparent 100%); }.portrait img { object-fit: contain; object-position: center bottom; filter: drop-shadow(0 12px 45px #0006); }
+.portraitParallax { position: absolute; inset: 0; transform-origin: center 65%; }
+.portraitFloat { position: absolute; inset: 0; animation: portrait-float 6s ease-in-out 1.1s infinite; animation-play-state: paused; }
+@keyframes portrait-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-9px) rotate(.35deg); } }
+@media (prefers-reduced-motion: reduce) { .portraitFloat { animation: none; } }
+.spark { position: absolute; right: 1%; top: 8%; z-index: 2; color: #a4c5ff; font-size: 57px; line-height: 1; }
+.availability { position: absolute; z-index: 3; left: -2%; bottom: 12%; display: flex; align-items: center; gap: 14px; padding: 19px 22px; border: 1px solid #ffffff20; border-radius: 12px; background: #101a2cda; backdrop-filter: blur(18px); box-shadow: 0 20px 50px #0003; }
+.availability > span { width: 8px; height: 8px; background: #70dab7; border-radius: 50%; box-shadow: 0 0 0 5px #70dab712; }.availability strong { display: block; color: #f1f5fd; font-size: 12px; font-weight: 600; }.availability small { display: block; margin-top: 5px; color: #adbad0; font-size: 10px; }.availability > svg { color: #8bb4ff; margin-left: 10px; }
+.caption { position: absolute; right: -5px; bottom: 24%; z-index: 2; writing-mode: vertical-rl; font-size: 9px; letter-spacing: .17em; color: #a1b6d9; }
+.scroll { position: absolute; bottom: 28px; left: max(48px, calc((100vw - 1400px) / 2)); min-height: 24px; color: #a5b1c6; font-size: 9px; letter-spacing: .18em; }
+@media (max-width: 1050px) { .grid { width: calc(100% - 56px); gap: 0; }.copy h1 { font-size: 4.9vw; }.visual { min-height: 620px; }.portrait { right: -60px; }.availability { left: 0; padding: 15px; }.caption { display: none; } }
+@media (max-width: 760px) { .hero { padding: 120px 0 65px; min-height: auto; }.grid { width: calc(100% - 40px); grid-template-columns: 1fr; }.copy { padding: 0; }.copy h1 { font-size: clamp(39px, 8.9vw, 64px); }.eyebrow { margin-bottom: 23px; }.introduction { font-size: 15px; }.description { max-width: 530px; font-size: 13px; }.actions { gap: 20px; margin-top: 25px; }.location { margin-top: 23px; }.visual { min-height: 570px; margin-top: 24px; }.portrait { inset: 0 -15px -20px; }.orbit { top: 13%; left: 5%; }.availability { bottom: 7%; left: 0; }.spark { top: 10%; right: 2%; }.watermark { left: -3%; bottom: 8%; }.scroll { left: 20px; bottom: 22px; } }
+@media (max-width: 390px) { .grid { width: calc(100% - 32px); }.visual { min-height: 485px; }.actions { gap: 12px; }.primary { padding-inline: 16px; }.secondary { gap: 8px; font-size: 11px; }.availability { padding: 14px; }.availability small { font-size: 9px; } }
+@media (prefers-reduced-motion: reduce) { .primary, .secondary { transition: none; }.primary:hover, .secondary:hover { transform: none; } }

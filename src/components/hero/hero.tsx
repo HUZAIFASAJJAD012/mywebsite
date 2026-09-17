@@ -1,26 +1,35 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, Globe2 } from "lucide-react";
 import { profile } from "@/content/profile";
-import { HeroSystemVisual } from "./hero-system-visual";
+import styles from "./hero.module.css";
+import { AnimatedPortrait } from "./animated-portrait";
 
 export function Hero() {
   return (
-    <section className="hero">
-      <div className="container hero-grid">
-        <div className="hero-copy-col">
-          <div className="hero-kicker hero-enter enter-one"><span>Freelance full-stack developer</span><i /><b>Based in Pakistan · Working worldwide</b></div>
-          <h1 className="hero-enter enter-two">{profile.heroTitle}<br /><span>{profile.heroTitleAccent}</span></h1>
-          <p className="hero-copy hero-enter enter-three">{profile.heroCopy}</p>
-          <div className="hero-enter enter-four">
-            <div className="hero-actions">
-              <Link className="button button-primary" href="/contact">Start a project <ArrowRight size={18} /></Link>
-              <Link className="button" href="#work">View my work</Link>
-            </div>
+    <section className={styles.hero} aria-labelledby="hero-heading">
+      <div className={styles.watermark} aria-hidden="true">DEVELOPER</div>
+      <div className={styles.grid}>
+        <div className={styles.copy}>
+          <p className={styles.eyebrow}>— IDEAS INTO REALITY</p>
+          <p className={styles.introduction}>Hello, I’m {profile.name}.</p>
+          <h1 id="hero-heading">Your vision.<br /><span>Built beyond</span><br />expectations.</h1>
+          <p className={styles.role}>{profile.shortTitle}</p>
+          <p className={styles.description}>{profile.heroCopy}</p>
+          <div className={styles.actions}>
+            <Link className={styles.primary} href="/contact">Let’s build something <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <Link className={styles.secondary} href="#work">Explore my work <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
+          <p className={styles.location}><Globe2 size={14} aria-hidden="true" />Based in {profile.location} · Working worldwide</p>
         </div>
-        <div className="hero-visual-col hero-enter enter-visual"><HeroSystemVisual /></div>
+        <div className={styles.visual}>
+          <div className={styles.orbit} aria-hidden="true" /><span className={styles.spark} aria-hidden="true">✳</span>
+          <AnimatedPortrait><Image src="/pic1.png" alt={`Portrait of ${profile.name}`} fill sizes="(max-width: 760px) 100vw, 52vw" preload /></AnimatedPortrait>
+          <div className={styles.availability}><span /><div><strong>{profile.availability}</strong><small>Let’s create something exceptional.</small></div><ArrowUpRight size={18} aria-hidden="true" /></div>
+          <span className={styles.caption}>DESIGN. DEVELOP. DELIVER.</span>
+        </div>
       </div>
-      <div className="hero-scroll" aria-hidden="true"><span>Scroll</span><i /><b /></div>
+      <a className={styles.scroll} href="#work">SCROLL TO EXPLORE ↓</a>
     </section>
   );
 }
