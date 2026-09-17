@@ -880,10 +880,10 @@ body:has(.home-page) .introduction-video-media::after {
 
 .home-page .product-section::before { background: radial-gradient(circle at 78% 45%,rgba(36,107,253,.09),transparent 34rem); }
 .home-page .product-showcase { border-radius: 20px; background: linear-gradient(145deg,rgba(9,27,54,.96),rgba(5,13,27,.98)); }
-.home-page .product-showcase-main { min-height: 470px; grid-template-columns: 1.12fr .88fr; }
+.home-page .product-showcase-main { min-height: 470px; grid-template-columns: minmax(0,1.12fr) minmax(0,.88fr); }
 .home-page .product-preview { margin: 1.45rem 0 1.45rem 1.45rem; min-height: auto; border: 1px solid rgba(120,165,255,.15); border-radius: 14px; }
 .home-page .product-preview img { object-fit: cover; object-position: center top; }
-.home-page .product-showcase-copy { padding: clamp(2rem,3.5vw,3.5rem); }
+.home-page .product-showcase-copy { min-width: 0; padding: clamp(2rem,3.5vw,3.5rem); }
 .home-page .product-showcase-copy h3 { font-size: clamp(2.8rem,4.5vw,4.25rem); }
 .home-page .product-showcase-copy .tag-list { order: -1; margin: 0 0 .5rem; }
 .home-page .product-showcase-copy .project-kicker { order: -2; margin-bottom: 1rem; }
@@ -972,6 +972,14 @@ body:has(.home-page) .introduction-video-media::after {
   .home-expertise-card { min-height: 250px; }
 }
 @media (max-width: 1023px) {
+  .home-page .product-showcase-main { grid-template-columns: minmax(0,1fr); min-height: 0; }
+  .home-page .product-preview { margin: 1.25rem 1.25rem 0; min-height: 0; aspect-ratio: 16 / 10; }
+  .home-page .product-showcase-copy { padding: 1.75rem; }
+  .home-page .product-showcase-copy h3 { font-size: clamp(2.5rem,6vw,3.75rem); line-height: 1.05; }
+  .home-page .product-showcase-copy .tag-list { order: 0; margin: 1.25rem 0; }
+  .home-page .product-showcase-copy .tag { max-width: 100%; overflow-wrap: anywhere; }
+  .home-page .product-showcase-copy .button { min-height: 48px; gap: .75rem; }
+  .home-page .product-showcase-copy .button svg { flex-shrink: 0; }
   .home-page .hero { min-height: auto; padding-top: 8.5rem; }
   .home-page .hero-grid { grid-template-columns: 1fr; }
   .home-page .hero-copy-col { max-width: 760px; }
@@ -1001,7 +1009,12 @@ body:has(.home-page) .introduction-video-media::after {
   .home-page .credibility-item { min-height: 92px; }
   .home-page .section,.home-page .section-tight,.home-contact-section { padding-block: 4.5rem; }
   .home-page .section-title { font-size: clamp(2.55rem,11vw,3.6rem); }
-  .home-page .product-preview { margin: 1rem; min-height: 280px; border-right: 1px solid rgba(120,165,255,.15); border-bottom: 1px solid rgba(120,165,255,.15); }
+  .home-page .product-preview { margin: 1rem 1rem 0; min-height: 0; aspect-ratio: 16 / 10; border-right: 1px solid rgba(120,165,255,.15); border-bottom: 1px solid rgba(120,165,255,.15); }
+  .home-page .product-showcase-copy { padding: 1.5rem; }
+  .home-page .product-showcase-copy > p { font-size: .94rem; line-height: 1.7; }
+  .home-page .product-showcase-copy .product-actions { flex-direction: column; }
+  .home-page .product-showcase-copy .button { width: 100%; justify-content: space-between; }
+  .home-page .product-live { left: .75rem; bottom: .75rem; white-space: nowrap; font-size: .62rem; }
   .home-work-grid,.home-expertise-grid { grid-template-columns: 1fr; }
   .home-work-card:last-child { grid-column: auto; width: auto; }
   .home-work-card p { min-height: 0; }
@@ -1034,7 +1047,8 @@ body:has(.home-page) .introduction-video-media::after {
   .hero-skill-panel.station-backend,.hero-skill-panel.station-cloud { right: 0; }
   .home-page .credibility-item { padding: .85rem; font-size: .65rem; }
   .home-page .credibility-item > svg { display: none; }
-  .home-page .product-preview { min-height: 230px; }
+  .home-page .product-preview { min-height: 0; }
+  .home-page .product-showcase-copy { padding: 1.25rem; }
   .home-work-card .project-art { min-height: 220px; }
   .home-expertise-card { min-height: 235px; }
   .home-ui-band { grid-template-columns: 1fr auto; }.home-ui-band > .home-expertise-icon { display: none; }

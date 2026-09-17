@@ -24,7 +24,7 @@ export function Hero() {
         </div>
         <div className={styles.visual}>
           <div className={styles.orbit} aria-hidden="true" /><span className={styles.spark} aria-hidden="true">✳</span>
-          <AnimatedPortrait><Image src="/pic1.png" alt={`Portrait of ${profile.name}`} fill sizes="(max-width: 760px) 100vw, 52vw" preload /></AnimatedPortrait>
+          <AnimatedPortrait><Image src="/pic1.png" alt={`Portrait of ${profile.name}`} fill sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1023px) 560px, (max-width: 1500px) 52vw, 700px" preload /></AnimatedPortrait>
           <div className={styles.availability}><span /><div><strong>{profile.availability}</strong><small>Let’s create something exceptional.</small></div><ArrowUpRight size={18} aria-hidden="true" /></div>
           <span className={styles.caption}>DESIGN. DEVELOP. DELIVER.</span>
         </div>
