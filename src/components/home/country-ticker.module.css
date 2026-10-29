@@ -1,0 +1,143 @@
+.ticker {
+  width: min(calc(100% - 6rem), 1360px);
+  min-height: 58px;
+  margin: .85rem auto 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(120, 165, 255, .16);
+  border-radius: 14px;
+  background: rgba(5, 14, 29, .9);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .16);
+}
+
+.label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding-inline: 1rem;
+  border-right: 1px solid rgba(120, 165, 255, .18);
+  color: #9fc8f4;
+  background: linear-gradient(135deg, #0c2850, #081a35);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.label::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #35d399;
+  box-shadow: 0 0 10px rgba(53, 211, 153, .8);
+}
+
+.viewport {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.track,
+.group,
+.country {
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  width: max-content;
+  flex: 0 0 auto;
+  will-change: transform;
+}
+
+.track > div,
+.group {
+  flex: 0 0 auto;
+}
+
+.country {
+  gap: .5rem;
+  padding-inline: 1rem;
+  color: #a8b6ca;
+  font-size: .76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.country::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  margin-left: .5rem;
+  border-radius: 50%;
+  background: #315c8c;
+}
+
+.flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 1180px) {
+  .ticker {
+    width: min(calc(100% - 4rem), 1100px);
+  }
+}
+
+@media (max-width: 767px) {
+  .ticker {
+    width: min(100% - 2.5rem, 1280px);
+    min-height: 54px;
+  }
+
+  .label {
+    padding-inline: .75rem;
+    font-size: .59rem;
+    letter-spacing: .1em;
+  }
+
+  .country {
+    padding-inline: .8rem;
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .ticker {
+    width: min(100% - 2rem, 1280px);
+  }
+
+  .label span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    overflow-x: auto;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+
+  .track {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .duplicate {
+    display: none;
+  }
+}

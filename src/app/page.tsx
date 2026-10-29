@@ -9,6 +9,7 @@ import { HomeExpertise } from "@/components/home/home-expertise";
 import { HomeExperience } from "@/components/home/home-experience";
 import { HomeContact } from "@/components/home/home-contact";
 import { HomeFinalCta } from "@/components/home/home-final-cta";
+import { HomeGlobalReach } from "@/components/home/home-global-reach";
 
 const process = [
   ["Discovery", "Understand goals, users, requirements and the real product constraint."],
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <Hero />
+      <HomeGlobalReach />
       <section className="credibility" aria-label="Professional credibility">
         <div className="container credibility-grid">
           <div className="credibility-item"><Layers3 aria-hidden="true" /><span><strong>Production experience</strong>Building digital products since 2022</span></div>
