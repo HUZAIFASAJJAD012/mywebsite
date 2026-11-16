@@ -14,5 +14,7 @@ describe("identity structured data", () => {
     expect(websiteJsonLd.publisher).toEqual({ "@id": personJsonLd["@id"] });
     expect(profilePageJsonLd.mainEntity).toEqual({ "@id": personJsonLd["@id"] });
     expect(profilePageJsonLd.url).toMatch(/\/about$/);
+    expect(profilePageJsonLd.primaryImageOfPage).toEqual({ "@id": personJsonLd.image["@id"] });
+    expect(personJsonLd.image.contentUrl).toMatch(/\/myprofile\.png$/);
   });
 });
