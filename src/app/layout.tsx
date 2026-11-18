@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
   },
+  other: { "google-adsense-account": "ca-pub-3396023961379458" },
 };
 
 export const viewport: Viewport = { themeColor: "#050816", colorScheme: "dark" };
