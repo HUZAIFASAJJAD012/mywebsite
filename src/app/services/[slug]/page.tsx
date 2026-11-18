@@ -9,7 +9,7 @@ import { AnalyticsPageView } from "@/components/analytics/analytics-events";
 import { gigs } from "@/content/gigs";
 import { getProject } from "@/content/projects";
 import { profile, siteUrl } from "@/content/profile";
-import { createBreadcrumbJsonLd } from "@/lib/structured-data";
+import { areaServedJsonLd, createBreadcrumbJsonLd } from "@/lib/structured-data";
 
 export const dynamicParams = false;
 
@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       serviceType: gig.title,
       description: gig.searchDescription,
       url: serviceUrl,
-      areaServed: "Worldwide",
+      areaServed: areaServedJsonLd,
       provider: { "@id": `${siteUrl}/#person` },
       ...(gig.startingPrice ? { offers: {
         "@type": "Offer",

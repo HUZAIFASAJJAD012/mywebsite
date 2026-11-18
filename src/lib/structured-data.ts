@@ -4,6 +4,15 @@ const sameAs = [profile.githubUrl, profile.freelancerUrl, profile.linkedinUrl].f
   (url): url is string => Boolean(url),
 );
 
+const countryMarkets = new Set(["Kuwait", "United States", "Pakistan"]);
+
+/** Markets served, from the profile's client-reach data, as schema.org places. */
+export const areaServedJsonLd = [
+  ...profile.clientReach.markets.map((market) => ({ "@type": countryMarkets.has(market.name) ? "Country" : "Place", name: market.name })),
+  { "@type": "Country", name: profile.location },
+  "Worldwide",
+];
+
 export const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
