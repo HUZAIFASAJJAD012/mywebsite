@@ -92,5 +92,18 @@ export async function POST(request: NextRequest) {
     const sent = await sendWithSmtp(parsed.data) || await sendWithWebhook(parsed.data);
     if (!sent) return NextResponse.json({ message: "Online enquiries are being configured. Please use email or WhatsApp for now." }, { status: 503 });
     return NextResponse.json({ message: "Message sent." });
-  } catch { return NextResponse.json({ message: "Your message could not be delivered. Please email me directly." }, { status: 502 }); }
+  } catch (error) {
+    // Log only the delivery error details (never the visitor's message) so the cause shows in the hosting logs.
+    const details = error && typeof error === "object" ? error as { code?: unknown; responseCode?: unknown; command?: unknown; message?: unknown } : {};
+    console.error("Contact delivery failed", {
+      code: details.code,
+      responseCode: details.responseCode,
+      command: details.command,
+      reason: typeof details.message === "string" ? details.message.slice(0, 300) : String(error).slice(0, 300),
+      smtpHost: process.env.SMTP_HOST,
+      smtpPort: process.env.SMTP_PORT ?? "465",
+      smtpSecure: process.env.SMTP_SECURE ?? "true",
+    });
+    return NextResponse.json({ message: "Your message could not be delivered. Please email me directly." }, { status: 502 });
+  }
 }
