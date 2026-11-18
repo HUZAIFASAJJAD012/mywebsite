@@ -13,6 +13,7 @@ const links = [
   ["Projects", "/#work"],
   ["Services", "/services"],
   ["Experience", "/#experience"],
+  ["Articles", "/articles"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ] as const;
@@ -70,7 +71,7 @@ export function SiteHeader() {
   function isActive(href: string) {
     if (href === "/") return pathname === "/" && activeSection === null;
     if (href.startsWith("/#")) return pathname === "/" && activeSection === href.slice(2);
-    return pathname === href || (href === "/services" && pathname.startsWith("/services/"));
+    return pathname === href || (href === "/services" && pathname.startsWith("/services/")) || (href === "/articles" && pathname.startsWith("/articles/"));
   }
 
   return (

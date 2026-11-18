@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles } from "@/content/articles";
 import { gigs } from "@/content/gigs";
 import { projects } from "@/content/projects";
 import { siteUrl } from "@/content/profile";
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/about`, lastModified, changeFrequency: "yearly", priority: .9, images: [`${siteUrl}/myprofile.png`] },
     { url: `${siteUrl}/projects`, lastModified, changeFrequency: "monthly", priority: .9 },
     { url: `${siteUrl}/services`, lastModified, changeFrequency: "monthly", priority: .9 },
+    { url: `${siteUrl}/articles`, lastModified, changeFrequency: "weekly", priority: .8 },
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: .7 },
   ];
   const servicePages: MetadataRoute.Sitemap = gigs.map((gig) => ({
@@ -26,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: project.coverImage ? [`${siteUrl}${project.coverImage}`] : undefined,
   }));
 
-  return [...corePages, ...servicePages, ...projectPages];
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${siteUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.updatedAt),
+    changeFrequency: "monthly",
+    priority: .8,
+  }));
+
+  return [...corePages, ...servicePages, ...projectPages, ...articlePages];
 }
