@@ -1107,3 +1107,29 @@ body:has(.home-page) .introduction-video-media::after {
   .article-layout { grid-template-columns: 1fr; }
   .article-toc { position: static; padding: 1.25rem; border: 1px solid var(--border); border-radius: 16px; }
 }
+
+/* Paragraph rhythm (Tailwind preflight removes default paragraph margins) */
+.about-grid .section-title + .section-copy { margin-top: 1.25rem; }
+.about-grid .section-copy + .section-copy { margin-top: 1rem; }
+.case-section p + p { margin-top: 1rem; }
+.article-content :is(p, ul, ol) { margin-block: 0 1.1rem; }
+.article-content h2 + * { margin-top: 0; }
+.article-content .article-code { margin-block: 1.25rem 1.5rem; }
+
+/* Introduction video: compact "Watch intro" pill until a visitor opens it */
+.introduction-video .introduction-video-head .introduction-video-expand { display: none; }
+.introduction-video[data-expanded="false"],
+body:has(.home-page) .introduction-video[data-expanded="false"] { width: auto; border-radius: 999px; }
+.introduction-video[data-expanded="false"] .introduction-video-head,
+body:has(.home-page) .introduction-video[data-expanded="false"] .introduction-video-head { min-height: 48px; gap: .35rem; padding: .3rem; border-bottom: 0; }
+.introduction-video[data-expanded="false"] .introduction-video-head > span,
+.introduction-video[data-expanded="false"] .introduction-video-media { display: none; }
+.introduction-video[data-expanded="false"] .introduction-video-head .introduction-video-expand,
+body:has(.home-page) .introduction-video[data-expanded="false"] .introduction-video-head .introduction-video-expand { display: inline-flex; align-items: center; gap: .45rem; width: auto; height: 40px; padding: 0 .95rem; border-radius: 999px; color: #eff6ff; background: rgba(37, 99, 235, .9); font-size: .78rem; font-weight: 800; white-space: nowrap; }
+.introduction-video[data-expanded="false"] .introduction-video-head .introduction-video-expand:hover { background: #2563eb; transform: none; }
+body:has(.home-page) .introduction-video[data-expanded="false"] .introduction-video-head button:not(.introduction-video-expand) { width: 40px; height: 40px; }
+
+/* Restore list markers removed by Tailwind preflight in long-form content */
+.article-content ul, .case-section ul { list-style: disc; }
+.article-content ol { list-style: decimal; }
+.article-content li::marker, .case-section li::marker { color: var(--brand-accent); }

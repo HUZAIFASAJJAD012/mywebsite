@@ -1,11 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { Play, Volume2, VolumeX, X } from "lucide-react";
 
+const dismissedKey = "hs_intro_dismissed";
+
+function readDismissed() {
+  try { return window.localStorage.getItem(dismissedKey) === "1"; } catch { return false; }
+}
+
+function rememberDismissed() {
+  try { window.localStorage.setItem(dismissedKey, "1"); } catch { /* storage unavailable: closing still works for this page view */ }
+}
+
 export function IntroductionVideo() {
-  const [visible, setVisible] = useState(true);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  // null until the browser has checked whether the visitor closed the video before.
+  const [dismissed, setDismissed] = useState<boolean | null>(null);
+  const [expanded, setExpanded] = useState(false);
   const [started, setStarted] = useState(false);
   const [musicPlaying, setMusicPlaying] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -13,11 +28,8 @@ export function IntroductionVideo() {
   const musicRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    const music = musicRef.current;
-    if (!music) return;
-    music.muted = false;
-    music.volume = .1;
-    void music.play().catch(() => undefined);
+    const timer = window.setTimeout(() => setDismissed(readDismissed()), 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   function startMusic() {
@@ -37,50 +49,57 @@ export function IntroductionVideo() {
   function playWithSound() {
     const video = videoRef.current;
     if (!video) return;
+    setExpanded(true);
     video.muted = false;
     video.volume = 1;
-    startMusic();
     void video.play();
   }
 
   function close() {
-    setVisible(false);
+    videoRef.current?.pause();
+    rememberDismissed();
+    setDismissed(true);
   }
+
+  const showVideo = isHome && dismissed === false;
+  const showMusicControl = !showVideo && dismissed !== null && (isHome || musicPlaying);
 
   return (
     <>
-      <audio ref={musicRef} src="/soft-background-music.mp3" preload="metadata" loop aria-hidden="true" onPlay={() => setMusicPlaying(true)} onPause={() => setMusicPlaying(false)} />
+      <audio ref={musicRef} src="/soft-background-music.mp3" preload="none" loop aria-hidden="true" onPlay={() => setMusicPlaying(true)} onPause={() => setMusicPlaying(false)} />
       <AnimatePresence mode="wait">
-        {visible ? (
-        <m.aside
-          key="introduction-video"
-          className="introduction-video"
-          aria-label="Introduction video"
-          initial={false}
-          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -10, y: 6 }}
-          transition={{ duration: reduceMotion ? 0 : .22, ease: [.16, 1, .3, 1] }}
-        >
-          <div className="introduction-video-head">
-            <span><i aria-hidden="true" /><b>Introduction</b></span>
-            <div className="introduction-video-actions">
-              <button type="button" onClick={toggleMusic} aria-label={musicPlaying ? "Pause website background music" : "Play website background music"}>{musicPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}</button>
-              <button type="button" onClick={close} aria-label="Close introduction video"><X size={17} /></button>
+        {showVideo ? (
+          <m.aside
+            key="introduction-video"
+            className="introduction-video"
+            data-expanded={expanded}
+            aria-label="Introduction video"
+            initial={false}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -10, y: 6 }}
+            transition={{ duration: reduceMotion ? 0 : .22, ease: [.16, 1, .3, 1] }}
+          >
+            <div className="introduction-video-head">
+              <span><i aria-hidden="true" /><b>Introduction</b></span>
+              <button className="introduction-video-expand" type="button" onClick={() => setExpanded(true)} aria-label="Watch introduction video"><Play size={14} fill="currentColor" aria-hidden="true" /> Watch intro</button>
+              <div className="introduction-video-actions">
+                <button type="button" onClick={toggleMusic} aria-label={musicPlaying ? "Pause website background music" : "Play website background music"}>{musicPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}</button>
+                <button type="button" onClick={close} aria-label="Close introduction video"><X size={17} /></button>
+              </div>
             </div>
-          </div>
-          <div className="introduction-video-media">
-            <video
-              ref={videoRef}
-              src="/intodcxiton%20vide.mp4"
-              aria-label="Video introduction by Huzaifa Sajjad"
-              playsInline
-              controls
-              preload="metadata"
-              onPlay={() => { setStarted(true); startMusic(); }}
-            />
-            {!started ? <button className="introduction-play" type="button" onClick={playWithSound}><span><Play size={18} fill="currentColor" /> Play with sound</span><Volume2 size={17} /></button> : null}
-          </div>
-        </m.aside>
-        ) : (
+            <div className="introduction-video-media">
+              <video
+                ref={videoRef}
+                src="/intodcxiton%20vide.mp4"
+                aria-label="Video introduction by Huzaifa Sajjad"
+                playsInline
+                controls
+                preload="metadata"
+                onPlay={() => setStarted(true)}
+              />
+              {!started ? <button className="introduction-play" type="button" onClick={playWithSound}><span><Play size={18} fill="currentColor" /> Play with sound</span><Volume2 size={17} /></button> : null}
+            </div>
+          </m.aside>
+        ) : showMusicControl ? (
           <m.button
             key="background-music-control"
             className="background-music-control"
@@ -94,7 +113,7 @@ export function IntroductionVideo() {
             {musicPlaying ? <Volume2 size={16} /> : <Play size={15} fill="currentColor" />}
             <span>{musicPlaying ? "Music on" : "Play music"}</span>
           </m.button>
-        )}
+        ) : null}
       </AnimatePresence>
     </>
   );

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { featuredProjects, projects } from "./projects";
+import { featuredProjects, projectFilterGroups, projects } from "./projects";
 import { gigs } from "./gigs";
 
 describe("project content", () => {
@@ -37,6 +37,11 @@ describe("project content", () => {
     ]) {
       expect(projects).toContainEqual(expect.objectContaining({ slug, liveUrl, coverImage, status: "live" }));
     }
+  });
+
+  it("groups every project into a short list of filters", () => {
+    expect(projectFilterGroups.length).toBeLessThanOrEqual(4);
+    for (const project of projects) expect(projectFilterGroups).toContain(project.filterGroup);
   });
 
   it("links every case study only to existing service pages", () => {

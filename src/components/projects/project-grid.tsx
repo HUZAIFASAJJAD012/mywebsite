@@ -1,14 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { projects } from "@/content/projects";
+import { projectFilterGroups, projects } from "@/content/projects";
 import { ProjectCard } from "./project-card";
 
-const filters = ["All", ...Array.from(new Set(projects.flatMap((project) => project.category)))];
+const filters = ["All", ...projectFilterGroups.filter((group) => projects.some((project) => project.filterGroup === group))];
 
 export function ProjectGrid() {
   const [active, setActive] = useState("All");
-  const filtered = useMemo(() => active === "All" ? projects : projects.filter((project) => project.category.includes(active)), [active]);
+  const filtered = useMemo(() => active === "All" ? projects : projects.filter((project) => project.filterGroup === active), [active]);
 
   return (
     <>

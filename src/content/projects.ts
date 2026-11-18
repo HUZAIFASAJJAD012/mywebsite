@@ -1,3 +1,6 @@
+export const projectFilterGroups = ["Business websites", "Web applications", "Interactive experiences"] as const;
+export type ProjectFilterGroup = (typeof projectFilterGroups)[number];
+
 export type Project = {
   slug: string;
   title: string;
@@ -5,6 +8,8 @@ export type Project = {
   shortDescription: string;
   summary: string;
   category: string[];
+  /** Broad group used by the project filters, so the filter list stays short. */
+  filterGroup: ProjectFilterGroup;
   role: string[];
   stack: string[];
   year?: string;
@@ -29,6 +34,7 @@ export const projects: Project[] = [
     shortDescription: "A modern multilingual restaurant website for an Arabic cuisine destination in Johor Bahru, Malaysia.",
     summary: "A clean, responsive and professional restaurant website that helps customers explore signature dishes, browse the menu, discover event services, reserve tables and connect directly.",
     category: ["Full Stack"],
+    filterGroup: "Business websites",
     role: ["Full-Stack Web Developer"],
     stack: ["Responsive web", "Multilingual support", "Reservations", "WhatsApp integration"],
     liveUrl: "https://restoranalkhalifa.com/",
@@ -55,6 +61,7 @@ export const projects: Project[] = [
     shortDescription: "A modern healthcare website that brings products, science, global presence and useful resources into one clear digital experience.",
     summary: "A responsive corporate healthcare platform designed and developed with a calm editorial interface, structured content pathways and accessible navigation across the organisation’s key areas.",
     category: ["Web Development", "Healthcare"],
+    filterGroup: "Business websites",
     role: ["Full-Stack Web Developer"],
     stack: ["Next.js", "Tailwind CSS", "Custom development", "Responsive design"],
     liveUrl: "https://luex-healthcare.vercel.app/",
@@ -81,6 +88,7 @@ export const projects: Project[] = [
     shortDescription: "A premium wellness storefront with product discovery, goal-based browsing, bundles and educational content for confident everyday choices.",
     summary: "A responsive health and wellness e-commerce experience that connects product browsing, detailed ingredient information, curated bundles and editorial resources in one cohesive platform.",
     category: ["E-Commerce", "Web Development"],
+    filterGroup: "Business websites",
     role: ["Full-Stack Web Developer"],
     stack: ["Next.js", "TypeScript", "E-commerce UX", "Responsive design"],
     liveUrl: "https://hollywood-nutritions.vercel.app/",
@@ -107,6 +115,7 @@ export const projects: Project[] = [
     shortDescription: "A secure public-media download utility that surfaces the formats a source actually provides and delivers files through temporary links.",
     summary: "A responsive web application for checking authorized public media links, comparing native source formats and completing downloads through a clear, privacy-conscious workflow.",
     category: ["Web Application", "Media Tool"],
+    filterGroup: "Web applications",
     role: ["Full-Stack Web Developer"],
     stack: ["Next.js", "TypeScript", "Secure media processing", "Responsive design"],
     liveUrl: "https://www.lynvado.online/",
@@ -139,6 +148,7 @@ export const projects: Project[] = [
     shortDescription: "A playful crypto launch experience that turns market-cap progress into an animated space journey from Earth to deep space.",
     summary: "A responsive, motion-led web experience for the PIGFLY meme-coin concept, combining market-cap telemetry, an interactive mission simulator and milestone celebrations in a cinematic space interface.",
     category: ["Web Development", "Interactive Experience"],
+    filterGroup: "Interactive experiences",
     role: ["Front-End Web Developer"],
     stack: ["React", "GSAP", "DexScreener integration", "Responsive design"],
     liveUrl: "https://coin-website-fawn.vercel.app/",
@@ -172,6 +182,7 @@ export const projects: Project[] = [
     shortDescription: "An interactive landing page concept for a funded-trading challenge, built around a playable market demo and an account configurator.",
     summary: "A responsive Next.js marketing experience for a funded-trading concept that lets visitors try a no-signup chart demo, explore trading sessions and design a funded account before signing up.",
     category: ["Web Development", "Fintech Concept"],
+    filterGroup: "Interactive experiences",
     role: ["Front-End Web Developer"],
     stack: ["Next.js", "Interactive UI", "Responsive design", "Vercel"],
     liveUrl: "https://site2-ten-virid.vercel.app/",
@@ -204,6 +215,7 @@ export const projects: Project[] = [
     shortDescription: "A premium product landing page concept for ORBIT ONE, a lightweight spatial-computing headset.",
     summary: "A responsive Next.js product showcase for a spatial-computing headset concept, combining large editorial typography, glass-style interface panels, product imagery and a film preview.",
     category: ["Web Development", "Product Concept"],
+    filterGroup: "Interactive experiences",
     role: ["Front-End Web Developer"],
     stack: ["Next.js", "Next.js Image optimisation", "Responsive design", "Vercel"],
     liveUrl: "https://website-one-pi-three.vercel.app/",

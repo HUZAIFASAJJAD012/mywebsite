@@ -32,18 +32,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section product-section" id="products">
-        <div className="container">
-          <SectionHeading eyebrow="Featured project" title="A focused tool, built" titleAccent="for honest downloads." copy="Lynvado turns an authorized public media link into a clear choice of source-available formats and a secure temporary download." />
-          <ProductShowcase />
-        </div>
-      </section>
-
       <section className="section" id="work">
         <div className="container">
           <SectionHeading eyebrow="Selected work" title="Products shaped" titleAccent="for real use." copy="Digital experiences delivered across interface design, content structure, responsive development and production deployment." />
           <SelectedWork />
           <div className="home-section-action"><Link className="home-arrow-link" href="/projects">View every project <ArrowRight size={16} /></Link></div>
+        </div>
+      </section>
+
+      <section className="section product-section" id="products">
+        <div className="container">
+          <SectionHeading eyebrow="My own product" title="A focused tool, built" titleAccent="for honest downloads." copy="Lynvado turns an authorized public media link into a clear choice of source-available formats and a secure temporary download." />
+          <ProductShowcase />
         </div>
       </section>
 
