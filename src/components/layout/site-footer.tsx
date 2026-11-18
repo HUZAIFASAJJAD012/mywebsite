@@ -25,7 +25,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
-          <span>Designed and built with Next.js</span>
+          <span><Link href="/privacy">Privacy Policy</Link> · Designed and built with Next.js</span>
         </div>
       </div>
     </footer>

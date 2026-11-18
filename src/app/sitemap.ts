@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/services`, lastModified, changeFrequency: "monthly", priority: .9 },
     { url: `${siteUrl}/articles`, lastModified, changeFrequency: "weekly", priority: .8 },
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: .7 },
+    { url: `${siteUrl}/privacy`, lastModified: new Date("2026-11-18"), changeFrequency: "yearly", priority: .3 },
   ];
   const servicePages: MetadataRoute.Sitemap = gigs.map((gig) => ({
     url: `${siteUrl}/services/${gig.slug}`,
