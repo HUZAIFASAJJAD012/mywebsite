@@ -30,10 +30,11 @@ describe("project content", () => {
     }));
   });
 
-  it("includes the Kairos and ORBIT concept projects with local covers", () => {
+  it("includes the NAYRO, Kairos and ORBIT projects with local covers", () => {
     for (const [slug, liveUrl, coverImage] of [
       ["kairos", "https://site2-ten-virid.vercel.app/", "/kairos-cover.png"],
       ["orbit", "https://website-one-pi-three.vercel.app/", "/orbit-cover.jpg"],
+      ["nayro", "https://nayro.shop/", "/nayro-cover.jpg"],
     ]) {
       expect(projects).toContainEqual(expect.objectContaining({ slug, liveUrl, coverImage, status: "live" }));
     }
