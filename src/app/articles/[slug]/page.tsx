@@ -58,6 +58,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       { name: "Articles", url: `${siteUrl}/articles` },
       { name: article.title, url },
     ]),
+    ...(article.faqs.length ? [{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      mainEntity: article.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
+    }] : []),
   ];
 
   return (

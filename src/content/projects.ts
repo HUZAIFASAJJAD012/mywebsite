@@ -275,6 +275,38 @@ export const projects: Project[] = [
     status: "live",
     serviceSlugs: ["business-landing-page", "nextjs-development", "web-development"],
   },
+  {
+    slug: "axtonfunded",
+    title: "Axtonfunded",
+    seoTitle: "Axtonfunded 3D Prop-Trading Website Case Study",
+    shortDescription: "A bilingual prop-trading landing page with a live 3D journey from Earth to the edge of the observable universe.",
+    summary: "A responsive Next.js website for a simulated-capital prop-trading brand, built around a scroll-driven WebGL journey through space, interactive challenge and rewards sections, and a full English and Hindi language switch.",
+    category: ["Web Development", "Fintech Website"],
+    filterGroup: "Interactive experiences",
+    role: ["Front-End Web Developer"],
+    stack: ["Next.js", "WebGL 3D", "English and Hindi", "Vercel"],
+    liveUrl: "https://starfold.vercel.app/",
+    featured: false,
+    coverImage: "/axtonfunded-cover.jpg",
+    coverTone: "indigo",
+    challenge: "Explain the evaluation models, rules and rewards of a prop-trading firm clearly while giving the brand a memorable, cinematic first impression that still works for keyboard users and visitors who prefer reduced motion.",
+    solution: "A dark, space-themed landing page where a live 3D scene travels from Earth outward as visitors scroll, paired with concise sections for the challenge models, how it works, the rewards calendar, payments, support and FAQs, plus a one-click English and Hindi switch.",
+    responsibilities: [
+      "Designed and built the responsive landing page experience",
+      "Built the scroll-driven 3D journey and interactive atlas with WebGL",
+      "Created the products menu, challenge-model cards and rewards calendar slider",
+      "Added a site-wide English and Hindi language switch",
+      "Made the experience keyboard accessible and turned off camera shake, blur and auto-play when reduced motion is requested",
+      "Deployed the production build on Vercel",
+    ],
+    highlights: [
+      "Live 3D journey from Earth to the observable universe",
+      "Full English and Hindi language switch",
+      "Reduced-motion and keyboard support",
+    ],
+    status: "live",
+    serviceSlugs: ["business-landing-page", "nextjs-development", "web-development"],
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);

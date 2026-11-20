@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { articleReadingMinutes, articles, getArticle } from "./articles";
+import { articleReadingMinutes, articleText, articles, getArticle } from "./articles";
 import { gigs } from "./gigs";
+import { projects } from "./projects";
 
 describe("articles", () => {
   it("uses unique, URL-safe slugs", () => {
@@ -26,6 +27,18 @@ describe("articles", () => {
       expect(article.updatedAt >= article.publishedAt).toBe(true);
       for (const slug of article.relatedServiceSlugs) expect(gigs.some((gig) => gig.slug === slug)).toBe(true);
       expect(articleReadingMinutes(article)).toBeGreaterThan(0);
+    }
+  });
+
+  it("links only to pages that exist on the site", () => {
+    const routes = new Set([
+      "/", "/about", "/contact", "/projects", "/services", "/articles", "/privacy",
+      ...gigs.map((gig) => `/services/${gig.slug}`),
+      ...projects.map((project) => `/projects/${project.slug}`),
+      ...articles.map((article) => `/articles/${article.slug}`),
+    ]);
+    for (const article of articles) {
+      for (const [, href] of articleText(article).matchAll(/\]\((\/[^)#?]*)/g)) expect(routes, `${article.slug} links to ${href}`).toContain(href);
     }
   });
 

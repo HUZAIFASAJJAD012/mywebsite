@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ArticleBlock } from "@/content/articles";
 
-const inlinePattern = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`/g;
+const inlinePattern = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`|\*\*([^*]+)\*\*/g;
 
 export function InlineText({ text }: { text: string }) {
   const nodes: ReactNode[] = [];
@@ -10,8 +10,9 @@ export function InlineText({ text }: { text: string }) {
   for (const match of text.matchAll(inlinePattern)) {
     const index = match.index ?? 0;
     if (index > lastIndex) nodes.push(text.slice(lastIndex, index));
-    const [, label, href, code] = match;
-    if (code) nodes.push(<code key={index}>{code}</code>);
+    const [, label, href, code, strong] = match;
+    if (strong) nodes.push(<strong key={index}>{strong}</strong>);
+    else if (code) nodes.push(<code key={index}>{code}</code>);
     else if (href.startsWith("/")) nodes.push(<Link key={index} href={href}>{label}</Link>);
     else nodes.push(<a key={index} href={href} target="_blank" rel="noopener noreferrer">{label}</a>);
     lastIndex = index + match[0].length;

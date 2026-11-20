@@ -30,8 +30,9 @@ describe("project content", () => {
     }));
   });
 
-  it("includes the NAYRO, Kairos and ORBIT projects with local covers", () => {
+  it("includes the NAYRO, Kairos, ORBIT and Axtonfunded projects with local covers", () => {
     for (const [slug, liveUrl, coverImage] of [
+      ["axtonfunded", "https://starfold.vercel.app/", "/axtonfunded-cover.jpg"],
       ["kairos", "https://site2-ten-virid.vercel.app/", "/kairos-cover.png"],
       ["orbit", "https://website-one-pi-three.vercel.app/", "/orbit-cover.jpg"],
       ["nayro", "https://nayro.shop/", "/nayro-cover.jpg"],

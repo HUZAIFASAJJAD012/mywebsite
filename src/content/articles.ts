@@ -23,6 +23,154 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "nextjs-vs-wordpress-business-website",
+    title: "Next.js vs WordPress for business websites: which should you choose?",
+    seoTitle: "Next.js vs WordPress for Business Websites (2026 Guide)",
+    description:
+      "Next.js vs WordPress compared for business websites: speed, SEO, security, cost, editing and scalability, with a clear checklist to choose the right platform.",
+    excerpt:
+      "An honest comparison of Next.js and WordPress for business owners: how each one handles speed, SEO, security, content editing, cost and growth, and when a headless setup gives you both.",
+    category: "Web development",
+    keywords: [
+      "Next.js vs WordPress",
+      "WordPress vs Next.js",
+      "best platform for business website",
+      "Next.js for business websites",
+      "headless WordPress",
+      "fast business website",
+      "Core Web Vitals",
+      "hire Next.js developer",
+    ],
+    publishedAt: "2026-11-20",
+    updatedAt: "2026-11-20",
+    sections: [
+      {
+        id: "quick-answer",
+        heading: "The quick answer",
+        blocks: [
+          { type: "p", text: "Choose **WordPress** when you need a simple content site or blog that your team will edit every day, you want to install ready-made plugins, and your budget is small. Choose **Next.js** when speed, search performance, security, custom features or future growth into a web application matter more than installing plugins." },
+          { type: "p", text: "Many growing businesses end up with a third option: a **headless** setup, where WordPress (or another content management system) is used only for editing content and Next.js renders the fast public website. The rest of this guide explains the trade-offs so that you can make the decision with confidence." },
+          { type: "note", text: "There is no single best platform for every business. The right choice depends on who edits the site, which features you need, your budget and how much the website contributes to sales." },
+        ],
+      },
+      {
+        id: "what-they-are",
+        heading: "What are WordPress and Next.js?",
+        blocks: [
+          { type: "p", text: "[WordPress](https://wordpress.org/) is an open-source content management system (CMS) written in PHP. It gives you an admin dashboard, themes for the design and a huge plugin library for features such as forms, SEO and online stores. According to [W3Techs](https://w3techs.com/technologies/details/cm-wordpress), it powers more than 40% of all websites, which makes it the most widely used CMS in the world." },
+          { type: "p", text: "[Next.js](https://nextjs.org/) is an open-source React framework maintained by Vercel. Instead of themes and plugins, a developer builds the website as a modern web application with full control over the design, the data and the performance. Pages can be generated in advance as static files, rendered on the server, or a mix of both, which is a big reason Next.js sites tend to load quickly." },
+          { type: "p", text: "In short: WordPress is a ready-made product that you configure, while Next.js is a professional toolkit that a developer uses to build exactly what your business needs." },
+        ],
+      },
+      {
+        id: "speed-and-core-web-vitals",
+        heading: "Speed and Core Web Vitals",
+        blocks: [
+          { type: "p", text: "Website speed affects both visitors and search rankings. Google measures real-world experience with [Core Web Vitals](https://web.dev/articles/vitals): **Largest Contentful Paint (LCP)** should be 2.5 seconds or less, **Interaction to Next Paint (INP)** 200 milliseconds or less, and **Cumulative Layout Shift (CLS)** 0.1 or less." },
+          { type: "ul", items: [
+            "**WordPress** can be fast, but every theme, page builder and plugin adds code. Good results usually need careful hosting, caching plugins and ongoing tuning, and a site often slows down as more plugins are added.",
+            "**Next.js** includes performance features out of the box: static generation, automatic code splitting, image optimisation with the `next/image` component, font optimisation and global CDN delivery when hosted on platforms such as Vercel.",
+          ] },
+          { type: "p", text: "In practice, a well-built Next.js site reaches good Core Web Vitals scores more easily and keeps them as it grows, because only the code each page needs is sent to the browser." },
+        ],
+      },
+      {
+        id: "seo",
+        heading: "SEO: which platform ranks better?",
+        blocks: [
+          { type: "p", text: "Neither platform ranks a website by itself. Google ranks helpful content, a clear site structure, good page experience and trustworthy signals such as quality backlinks. What differs is how much work it takes to get the technical SEO right." },
+          { type: "ul", items: [
+            "**WordPress** makes on-page SEO easy for non-technical users with plugins such as Yoast SEO or Rank Math, which manage titles, descriptions and sitemaps from the dashboard.",
+            "**Next.js** gives a developer precise control over every technical detail: server-rendered HTML that search engines can read immediately, the built-in Metadata API for titles and social previews, generated `sitemap.xml` and `robots.txt` files, canonical URLs and structured data (JSON-LD) that helps Google understand your business, services and articles.",
+          ] },
+          { type: "p", text: "Google’s own [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) is a good reference for the fundamentals that matter on either platform. If you want help with the technical side, see my [SEO services](/services/seo-services)." },
+        ],
+      },
+      {
+        id: "security-and-maintenance",
+        heading: "Security and maintenance",
+        blocks: [
+          { type: "p", text: "Because WordPress is so popular, it is a frequent target for automated attacks. Most WordPress security problems come from outdated plugins and themes, weak admin passwords and poorly maintained hosting. Keeping a WordPress site safe means regular core, theme and plugin updates, backups and a security plugin or firewall." },
+          { type: "p", text: "A Next.js site has a much smaller attack surface: there is no public admin login or plugin system on the website itself, and statically generated pages are simply files served from a CDN. It still needs good practice, such as keeping dependencies updated, validating form input on the server and storing secrets as environment variables, but routine maintenance is usually lighter." },
+        ],
+      },
+      {
+        id: "editing-content",
+        heading: "Editing content",
+        blocks: [
+          { type: "p", text: "This is where WordPress shines. Its visual editor is familiar, and staff can publish posts, update pages and upload images without a developer." },
+          { type: "p", text: "A Next.js site can offer the same convenience when it is connected to a headless CMS such as Sanity, Contentful, Strapi or WordPress itself. Your team edits content in a friendly dashboard and the website updates automatically. For sites whose content changes rarely, content can also live directly in the codebase, which is the fastest and most affordable option." },
+        ],
+      },
+      {
+        id: "cost",
+        heading: "Cost: build, hosting and long-term ownership",
+        blocks: [
+          { type: "p", text: "Compare the total cost over two or three years, not just the launch price:" },
+          { type: "ul", items: [
+            "**Build cost:** a template-based WordPress site is usually the cheapest to launch. A custom Next.js site needs a developer from the start, so the first build typically costs more.",
+            "**Hosting:** WordPress needs PHP hosting with a database. Many Next.js business websites run on Vercel or Netlify, which offer free tiers for small sites and scale as traffic grows.",
+            "**Plugins and licences:** premium WordPress themes and plugins often charge yearly subscriptions. Next.js features are built into the code, without plugin licences.",
+            "**Maintenance:** budget time for WordPress updates and security monitoring. A Next.js site usually needs fewer, planned updates.",
+          ] },
+          { type: "p", text: "For a simple brochure site, WordPress is often the most economical. For a site that drives leads or sales, faster pages and fewer maintenance problems can pay back the higher build cost. You can see my current [service pricing](/services) or [request a quote](/contact)." },
+        ],
+      },
+      {
+        id: "scalability-and-custom-features",
+        heading: "Scalability and custom features",
+        blocks: [
+          { type: "p", text: "If your website may grow into more than a set of pages, such as customer accounts, booking, dashboards, online payments, AI features or integrations with your other software, Next.js is the stronger foundation. The same codebase can serve marketing pages and a full web application, with API routes and server-side logic built in." },
+          { type: "p", text: "WordPress can be extended with custom plugins, but complex application features often become hard to maintain. For online stores, WooCommerce works well for many small shops, while a custom Next.js storefront gives more control over speed and checkout experience — the approach I used for the [NAYRO e-commerce store](/projects/nayro)." },
+        ],
+      },
+      {
+        id: "side-by-side",
+        heading: "Next.js vs WordPress side by side",
+        blocks: [
+          { type: "ul", items: [
+            "**Best for:** WordPress — blogs, simple brochure sites and teams that need plugins. Next.js — fast marketing sites, custom features, e-commerce and web applications.",
+            "**Speed:** WordPress — depends on theme, plugins and hosting. Next.js — fast by default with static generation and image optimisation.",
+            "**SEO:** WordPress — easy with plugins. Next.js — full technical control, including structured data.",
+            "**Security:** WordPress — needs regular plugin and core updates. Next.js — smaller attack surface, no public admin.",
+            "**Content editing:** WordPress — built in. Next.js — through a headless CMS or code.",
+            "**Launch cost:** WordPress — lower. Next.js — higher, with fewer ongoing plugin costs.",
+          ] },
+        ],
+      },
+      {
+        id: "how-to-choose",
+        heading: "How to choose: a simple checklist",
+        blocks: [
+          { type: "p", text: "Answer these questions honestly:" },
+          { type: "ol", items: [
+            "Will non-technical staff publish content several times a week? If yes, you need a CMS: WordPress or Next.js with a headless CMS.",
+            "Does the website bring in leads or sales, so that every second of loading time matters? If yes, lean towards Next.js.",
+            "Do you need custom features such as accounts, bookings, dashboards or integrations, now or within a year? If yes, choose Next.js.",
+            "Is the budget very tight and the site simple? WordPress is a sensible starting point.",
+            "Do you already have a large WordPress site with a lot of content? Consider going headless instead of rebuilding from scratch.",
+          ] },
+        ],
+      },
+      {
+        id: "work-with-me",
+        heading: "Get help choosing and building the right website",
+        blocks: [
+          { type: "p", text: "I am a freelance full-stack developer who builds fast, SEO-ready business websites and web applications with Next.js. You can browse [my projects](/projects), learn about my [Next.js development service](/services/nextjs-development) and [small business websites](/services/small-business-websites), or read how I use [Claude AI in web development](/articles/claude-ai-for-web-development)." },
+          { type: "p", text: "If you are still unsure which platform fits your business, [send me your project details](/contact) and I will recommend the simplest option that meets your goals." },
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Is Next.js better than WordPress for SEO?", answer: "Next.js gives developers more control over technical SEO and usually makes fast page speed easier to achieve, which helps page experience. WordPress is easier for non-technical users to manage with SEO plugins. Rankings ultimately depend on content quality, site structure and backlinks on either platform." },
+      { question: "Is Next.js more expensive than WordPress?", answer: "A custom Next.js site usually costs more to build because it needs a developer, while a template-based WordPress site is cheaper to launch. Over time, Next.js can cost less to run because there are fewer plugin licences and less security maintenance." },
+      { question: "Can I edit a Next.js website without coding?", answer: "Yes. A Next.js site can be connected to a headless CMS such as Sanity, Contentful, Strapi or WordPress, giving your team a visual dashboard to edit pages and posts without touching code." },
+      { question: "What is headless WordPress?", answer: "Headless WordPress uses WordPress only as the content editor and database, while a separate front end, often built with Next.js, displays the website. You keep the familiar WordPress dashboard and gain the speed and flexibility of Next.js." },
+      { question: "Should I move my WordPress site to Next.js?", answer: "Move when slow speed, security problems, plugin conflicts or missing custom features are holding the business back. If the site works well and mainly needs content updates, improving the existing WordPress site may be the better investment." },
+    ],
+    relatedServiceSlugs: ["nextjs-development", "small-business-websites", "seo-services"],
+  },
+  {
     slug: "claude-ai-for-web-development",
     title: "Claude AI for web development: a practical guide",
     seoTitle: "Claude AI for Web Development: A Practical Guide (2026)",
@@ -168,7 +316,7 @@ export async function POST(request: Request) {
             "Add validation, logging and human review, then launch to a limited group first.",
             "Improve the prompt and workflow using real feedback before expanding.",
           ] },
-          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development)." },
+          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development). Choosing a platform for a new site? Read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website)." },
         ],
       },
     ],
