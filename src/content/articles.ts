@@ -156,7 +156,7 @@ export const articles: Article[] = [
         id: "work-with-me",
         heading: "Get help choosing and building the right website",
         blocks: [
-          { type: "p", text: "I am a freelance full-stack developer who builds fast, SEO-ready business websites and web applications with Next.js. You can browse [my projects](/projects), learn about my [Next.js development service](/services/nextjs-development) and [small business websites](/services/small-business-websites), or read how I use [Claude AI in web development](/articles/claude-ai-for-web-development)." },
+          { type: "p", text: "I am a freelance full-stack developer who builds fast, SEO-ready business websites and web applications with Next.js. You can browse [my projects](/projects), learn about my [Next.js development service](/services/nextjs-development) and [small business websites](/services/small-business-websites), read how I use [Claude AI in web development](/articles/claude-ai-for-web-development), or see [how to make money with Claude AI in 2027](/articles/make-money-with-claude-ai-2027)." },
           { type: "p", text: "If you are still unsure which platform fits your business, [send me your project details](/contact) and I will recommend the simplest option that meets your goals." },
         ],
       },
@@ -316,7 +316,7 @@ export async function POST(request: Request) {
             "Add validation, logging and human review, then launch to a limited group first.",
             "Improve the prompt and workflow using real feedback before expanding.",
           ] },
-          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development). Choosing a platform for a new site? Read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website)." },
+          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development). Want to turn these skills into income? Read [how to make money with Claude AI in 2027](/articles/make-money-with-claude-ai-2027). Choosing a platform for a new site? Read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website)." },
         ],
       },
     ],
@@ -328,6 +328,173 @@ export async function POST(request: Request) {
       { question: "Is it safe to use Claude with business data?", answer: "It can be, when the integration is designed carefully: keep keys on the server, send only the data the task needs, review Anthropic’s data and retention policies for your plan, and add validation and human review where decisions matter." },
     ],
     relatedServiceSlugs: ["ai-automation", "full-stack-development", "nextjs-development"],
+  },
+  {
+    slug: "make-money-with-claude-ai-2027",
+    title: "How to make money with Claude AI in 2027: 9 realistic ways",
+    seoTitle: "How to Make Money With Claude AI in 2027: 9 Real Ways",
+    description:
+      "Nine realistic ways to earn with Claude AI in 2027: freelancing, Claude Code services, automation, API products, content and certification, with no income hype.",
+    excerpt:
+      "A practical, hype-free guide to earning with Claude in 2027: which skills clients actually pay for, nine business models, where to find clients, how to price your work and how to build a reputation that compounds.",
+    category: "AI & development",
+    keywords: [
+      "make money with Claude AI",
+      "how to make money with AI in 2027",
+      "Claude AI side hustle",
+      "Claude Code freelancing",
+      "AI automation business",
+      "freelance AI developer",
+      "Claude API business ideas",
+      "Claude Partner Network",
+      "earn money with AI",
+    ],
+    publishedAt: "2026-11-23",
+    updatedAt: "2026-11-23",
+    sections: [
+      {
+        id: "quick-answer",
+        heading: "The quick answer",
+        blocks: [
+          { type: "p", text: "You do not make money from Claude itself; you make money by using Claude to solve a problem that someone already pays to have solved. The most reliable routes in 2027 are **freelance development and automation work, productised AI services, and small software products** built on the Claude API. Content, teaching and consulting come next." },
+          { type: "p", text: "The tool is available to everyone, so it is not the advantage. Your advantage is a skill clients trust (web development, data work, writing, operations), a niche you understand and a record of results you can show." },
+          { type: "note", text: "This guide contains no income promises. Earnings depend on your skills, market, pricing and consistency, and anyone quoting guaranteed monthly figures from AI is selling you something. All product, plan and programme details are accurate as of November 2026; check the official pages before you decide." },
+        ],
+      },
+      {
+        id: "what-changes-in-2027",
+        heading: "What has changed for people who earn with AI",
+        blocks: [
+          { type: "p", text: "Two shifts matter. First, basic output such as a generic blog post, logo or landing page has become cheap, so clients no longer pay a premium for it. Second, the demand for people who can **connect AI to a real business process reliably** has grown: integrating a model with a company’s documents, tools and approval steps, then testing and maintaining it." },
+          { type: "p", text: "Anthropic itself has invested in this ecosystem. In 2026 it launched the [Claude Partner Network](https://www.anthropic.com/news/claude-partner-network) with $100 million of investment aimed at organisations that help businesses adopt Claude, and it offers role-based certifications through its Partner Academy. That is a signal that implementation skills, not just prompting, are where professional demand sits." },
+        ],
+      },
+      {
+        id: "nine-ways",
+        heading: "Nine realistic ways to earn with Claude",
+        blocks: [
+          { type: "ol", items: [
+            "**Freelance development with Claude Code.** Use an AI coding assistant to deliver websites, web apps and fixes faster, then keep the quality high with your own review. Clients pay for working, maintainable software, not for the tool. See how I use it in my [Claude AI for web development guide](/articles/claude-ai-for-web-development).",
+            "**AI automation for small businesses.** Automate repetitive work such as lead qualification, support replies with human approval, document data extraction and report drafting. This is the strongest service for non-enterprise clients because the value is easy to explain: time saved per week.",
+            "**Productised services.** Package one result at a fixed scope and price, for example “support-inbox triage setup” or “invoice data extraction workflow”. Fixed offers are easier to sell, deliver and repeat than open-ended consulting.",
+            "**Micro-SaaS and API products.** Build a narrow tool for one audience using the Claude API, such as a contract-clause checker for freelancers or a product-description tool for a specific e-commerce niche. Add accounts, usage limits and billing, and keep model costs below what you charge.",
+            "**Content and SEO publishing.** Use Claude for research, outlines and editing, but publish only material you have checked and improved with first-hand experience. Search engines reward helpful, original content; thin AI text is a risk, not a business.",
+            "**Consulting and implementation audits.** Review a company’s workflows, identify the three tasks where AI saves the most time, and deliver a plan with a prototype. A paid audit is a low-risk way for a client to start working with you.",
+            "**Training and workshops.** Teach teams to use Claude safely and effectively for their own jobs: prompts, privacy rules, review habits and example workflows. Corporate teams and agencies often prefer a practical half-day session to a long course.",
+            "**Data cleaning, research and document processing.** Turn messy PDFs, spreadsheets and notes into structured data, summaries or reports, with a quality check on every deliverable.",
+            "**Partner and certification route.** Firms that implement Claude for customers can apply to the [Claude Partner Network](https://claude.com/partners), and individuals can pursue [Anthropic’s role-based certifications](https://claude.com/blog/four-role-based-claude-certifications) to prove their skills. Verify current eligibility and requirements on those pages before you plan around them.",
+          ] },
+        ],
+      },
+      {
+        id: "skills-that-pay",
+        heading: "The skills clients actually pay for",
+        blocks: [
+          { type: "ul", items: [
+            "**Problem definition:** turning a vague wish (“use AI”) into a specific task with a measurable result.",
+            "**Integration:** connecting the model to websites, databases, email, spreadsheets and internal tools through APIs.",
+            "**Evaluation:** building a small set of real test cases so that you can prove quality and catch regressions.",
+            "**Safety and reliability:** keeping secrets on the server, validating outputs, handling prompt injection and adding human approval for important actions.",
+            "**Cost control:** choosing the cheapest model that meets the quality bar, caching repeated context and setting usage limits.",
+            "**Communication:** explaining what the system can and cannot do, in plain language.",
+          ] },
+          { type: "p", text: "If you can already build websites and apps, you have a head start. A fast, search-friendly front end plus a dependable AI back end is a combination many small businesses cannot assemble alone; it is the kind of work behind my [AI automation](/services/ai-automation) and [full-stack development](/services/full-stack-development) services." },
+        ],
+      },
+      {
+        id: "find-clients",
+        heading: "Where to find your first clients",
+        blocks: [
+          { type: "ul", items: [
+            "**Freelance marketplaces** such as [Upwork](https://www.upwork.com/) and [Fiverr](https://www.fiverr.com/) — good for your first reviews. Choose one narrow offer instead of listing everything you can do.",
+            "**Your own website,** with case studies, a clear services page and an easy way to contact you. Search traffic compounds over time; see the [Next.js vs WordPress guide](/articles/nextjs-vs-wordpress-business-website) for choosing a fast platform.",
+            "**Referrals and past clients.** Ask every satisfied client for a short, honest testimonial and an introduction.",
+            "**Professional communities** such as LinkedIn, GitHub and industry groups, where you share useful work rather than pitching.",
+            "**Local and niche businesses** that you understand, such as clinics, shops, agencies and logistics firms, with one concrete workflow you can improve.",
+          ] },
+        ],
+      },
+      {
+        id: "pricing",
+        heading: "How to price AI work",
+        blocks: [
+          { type: "p", text: "Price on the value of the outcome and the scope you control, not on how few hours the tool saves you. If AI lets you deliver in two days what used to take two weeks, the client still receives the same result." },
+          { type: "ul", items: [
+            "**Fixed price per defined deliverable** for packaged services and prototypes.",
+            "**Monthly retainer** for monitoring, improvements and support after launch, which smooths your income.",
+            "**Usage-based pricing** for API products, with model costs tracked per customer so that margins stay healthy.",
+            "**Separate model costs** in client projects: either bill API usage at cost or build a clear allowance into the retainer.",
+          ] },
+          { type: "p", text: "Check Anthropic’s official pricing page for current plan and API token rates before quoting, because both change. For a sense of how I scope work, see my [service pricing](/services)." },
+        ],
+      },
+      {
+        id: "seo-strategy",
+        heading: "Build a search presence that brings in clients",
+        blocks: [
+          { type: "p", text: "A website that ranks for what clients search for is the cheapest long-term source of leads. A practical approach:" },
+          { type: "ol", items: [
+            "**Choose a specific topic and customer,** such as “AI automation for dental clinics”, rather than “AI services”.",
+            "**Match search intent.** Write the guide, comparison or case study people expect for that query, and answer the question near the top.",
+            "**Show first-hand experience:** screenshots, code, decisions and outcomes you can verify. Google’s [guidance on helpful, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) explains why this matters.",
+            "**Optimise the basics:** a unique title and meta description, one clear H1, descriptive headings, fast pages, structured data and internal links between related pages.",
+            "**Measure with [Google Search Console](https://search.google.com/search-console/about)** and improve pages using the real queries they appear for.",
+          ] },
+          { type: "p", text: "New sites often see only a handful of impressions at first. That is normal; consistent, useful publishing and genuine links matter more than any trick." },
+        ],
+      },
+      {
+        id: "backlinks",
+        heading: "Backlinks: earn them, never buy them",
+        blocks: [
+          { type: "p", text: "Backlinks, links from other websites to yours, remain a trust signal, but purchased or manipulative links break Google’s [spam policies](https://developers.google.com/search/docs/essentials/spam-policies) and can cause penalties. Earn them instead:" },
+          { type: "ul", items: [
+            "**Publish original, useful assets** that others want to cite: a checklist, template, benchmark of your own tests or a clear case study.",
+            "**Contribute to open source and communities** you genuinely use; a project README or profile can legitimately point to your site.",
+            "**Complete your profiles:** GitHub, LinkedIn, Freelancer, Upwork and Fiverr should all use the same name and link to your website.",
+            "**Share expertise with journalists, newsletters and podcasts** that cover your niche, and write guest articles only for publications your clients read.",
+            "**Fix and reclaim:** if a project or client mentions you without a link, politely ask for one.",
+            "**Link internally** between your own related pages so that authority and readers flow to your service pages.",
+          ] },
+        ],
+      },
+      {
+        id: "mistakes-to-avoid",
+        heading: "Mistakes that stop people earning",
+        blocks: [
+          { type: "ul", items: [
+            "**Selling the tool instead of a result.** Nobody pays for “I use AI”; they pay for hours saved or revenue gained.",
+            "**Publishing unreviewed AI content,** which damages trust and search performance.",
+            "**Exposing keys or private client data** in prompts or browser code.",
+            "**Skipping testing.** A confident wrong answer in front of a customer costs more than the project earned.",
+            "**Chasing every trend.** Pick one niche and offer, deliver it well and then expand.",
+            "**Believing “get rich” promises.** Treat courses and communities that advertise income screenshots with caution.",
+          ] },
+        ],
+      },
+      {
+        id: "30-day-plan",
+        heading: "A 30-day plan to get started",
+        blocks: [
+          { type: "ol", items: [
+            "**Week 1:** choose one skill, one customer type and one specific outcome. Write the offer in a single sentence.",
+            "**Week 2:** build a working demo or sample project and document it with screenshots and a short case study on your website.",
+            "**Week 3:** publish your offer on one marketplace and your own site, complete your professional profiles and message ten relevant businesses with a concrete suggestion for each.",
+            "**Week 4:** deliver your first paid or discounted pilot, collect feedback and a testimonial, then improve the offer and set your price.",
+          ] },
+          { type: "p", text: "If you would like a developer to build the website, automation or AI feature behind your offer, [contact me](/contact) with your idea and I will suggest a practical first version." },
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Can you really make money with Claude AI?", answer: "Yes, but indirectly. People earn by using Claude to deliver services or products that customers already want, such as development, automation, content workflows and consulting. There is no guaranteed income, and results depend on your skills, niche and consistency." },
+      { question: "What is the best way to make money with AI in 2027?", answer: "For most people the most reliable path is a skill-based service: freelance development, AI automation for small businesses or a productised workflow, with a narrow niche. Micro-SaaS products can scale further but take longer to validate." },
+      { question: "Do I need to know how to code to earn with Claude?", answer: "Not always. Training, research, content editing, document processing and consulting need little or no code. Automation, API products and web development do, and coding skills let you charge more for dependable results." },
+      { question: "Is it worth getting a Claude certification?", answer: "Anthropic offers role-based certifications through its Partner Academy for members of the Claude Partner Network. A certification can help prove skills to clients and partners, but real projects and references matter more. Check Anthropic’s official pages for current eligibility." },
+      { question: "How do I get backlinks to my new website?", answer: "Earn them with original, useful content, genuine profiles, open-source contributions, guest articles in relevant publications and by asking people who already mention you to link. Buying links violates Google’s spam policies and can lead to penalties." },
+      { question: "Is AI-generated content allowed in Google Search?", answer: "Google’s guidance says content is judged on quality and helpfulness, not on how it is produced. Using AI to create content mainly to manipulate rankings violates its spam policies, so review, fact-check and add first-hand experience to anything you publish." },
+    ],
+    relatedServiceSlugs: ["ai-automation", "seo-services", "full-stack-development"],
   },
 ];
 
