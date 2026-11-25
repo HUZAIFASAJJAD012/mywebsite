@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { consentModeDefault } from "@/lib/consent";
 
 export function GoogleAnalytics() {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
@@ -11,6 +12,7 @@ export function GoogleAnalytics() {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
+        gtag('consent', 'default', ${JSON.stringify(consentModeDefault)});
         gtag('js', new Date());
         gtag('config', ${JSON.stringify(measurementId)});
       `}</Script>
