@@ -21,6 +21,15 @@ describe("project content", () => {
     ]);
   });
 
+  it("lists Luna Ember first so it leads the projects page", () => {
+    expect(projects[0]).toMatchObject({
+      slug: "luna-ember",
+      liveUrl: "https://luna-ember-two.vercel.app/",
+      coverImage: "/luna-ember-cover.jpg",
+      status: "live",
+    });
+  });
+
   it("includes the Pigs Can Fly interactive project", () => {
     expect(projects).toContainEqual(expect.objectContaining({
       slug: "pigs-can-fly",

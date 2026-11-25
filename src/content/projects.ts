@@ -28,6 +28,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "luna-ember",
+    title: "Luna Ember Restaurant",
+    seoTitle: "Luna Ember Restaurant Website Case Study",
+    shortDescription: "A modern restaurant website with a filterable menu, chef's picks and online table reservations with self-service booking lookup.",
+    summary: "A responsive restaurant website built with Next.js, with a warm, dark visual identity, a searchable menu with diet filters, a chef's picks page and an online reservation flow where guests can also look up their booking.",
+    category: ["Web Development", "Restaurant Website"],
+    filterGroup: "Business websites",
+    role: ["Full-Stack Web Developer"],
+    stack: ["Next.js", "Online reservations", "Menu search and filters", "Vercel"],
+    liveUrl: "https://luna-ember-two.vercel.app/",
+    featured: false,
+    coverImage: "/luna-ember-cover.jpg",
+    coverTone: "rose",
+    challenge: "Give diners a quick way to find a dish they will enjoy and book a table without a phone call, while keeping the restaurant's atmosphere clear from the first screen.",
+    solution: "A responsive site with a hero that leads to the menu and booking, a menu that can be searched and filtered by category and diet, a chef's picks page for signature dishes, and a reservation page with opening hours, booking rules and a way to find an existing booking by reference and email.",
+    responsibilities: [
+      "Designed and built the restaurant website with Next.js",
+      "Created a menu with category and diet filters and search",
+      "Built the chef's picks page for signature dishes",
+      "Implemented the online reservation flow and booking lookup by reference and email",
+      "Added opening hours, booking rules and clear calls to action to book a table",
+      "Deployed the production website on Vercel",
+    ],
+    status: "live",
+    serviceSlugs: ["web-development", "small-business-websites", "nextjs-development"],
+  },
+  {
     slug: "al-khalifa-signature",
     title: "Al Khalifa Signature",
     seoTitle: "Al Khalifa Restaurant Website Case Study",
