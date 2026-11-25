@@ -24,3 +24,16 @@ export function isIndexableEnvironment(vercelEnv: string | undefined = process.e
 export function toIsoDateTime(date: string) {
   return date.includes("T") ? date : `${date}T00:00:00+05:00`;
 }
+
+/**
+ * The AdSense ad script loads only on the production deployment, and only when
+ * NEXT_PUBLIC_ADSENSE_ENABLED is exactly "true". Keep it off until the AdSense site is
+ * approved and Google's consent message (Privacy & messaging) is turned on for the
+ * EEA, UK and Switzerland.
+ */
+export function shouldLoadAdSense(
+  enabled: string | undefined = process.env.NEXT_PUBLIC_ADSENSE_ENABLED,
+  vercelEnv: string | undefined = process.env.VERCEL_ENV,
+) {
+  return enabled?.trim() === "true" && isIndexableEnvironment(vercelEnv);
+}

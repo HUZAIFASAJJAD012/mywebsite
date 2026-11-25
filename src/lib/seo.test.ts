@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { articles } from "../content/articles";
-import { baseOpenGraph, isIndexableEnvironment, toIsoDateTime } from "./seo";
+import { baseOpenGraph, isIndexableEnvironment, shouldLoadAdSense, toIsoDateTime } from "./seo";
 import robots from "../app/robots";
 import sitemap from "../app/sitemap";
 
@@ -62,5 +62,19 @@ describe("sitemap", () => {
   it("has no duplicate URLs", () => {
     const urls = entries.map((entry) => entry.url);
     expect(new Set(urls).size).toBe(urls.length);
+  });
+});
+
+describe("AdSense script gating", () => {
+  it("stays off unless explicitly enabled", () => {
+    expect(shouldLoadAdSense(undefined, "production")).toBe(false);
+    expect(shouldLoadAdSense("false", "production")).toBe(false);
+    expect(shouldLoadAdSense("", "production")).toBe(false);
+  });
+
+  it("loads only when enabled on production or a local production build", () => {
+    expect(shouldLoadAdSense("true", "production")).toBe(true);
+    expect(shouldLoadAdSense(" true ", undefined)).toBe(true);
+    expect(shouldLoadAdSense("true", "preview")).toBe(false);
   });
 });

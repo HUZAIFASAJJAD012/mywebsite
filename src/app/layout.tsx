@@ -10,7 +10,8 @@ import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { AnalyticsEvents } from "@/components/analytics/analytics-events";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
-import { profile, siteUrl } from "@/content/profile";
+import { AdSenseScript } from "@/components/analytics/adsense-script";
+import { adsensePublisherId, profile, siteUrl } from "@/content/profile";
 import { personJsonLd, websiteJsonLd } from "@/lib/structured-data";
 import { baseOpenGraph, isIndexableEnvironment } from "@/lib/seo";
 import "./globals.css";
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
   },
-  other: { "google-adsense-account": "ca-pub-3396023961379458" },
+  other: { "google-adsense-account": adsensePublisherId },
 };
 
 export const viewport: Viewport = { themeColor: "#050816", colorScheme: "dark" };
@@ -68,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <AnalyticsEvents />
         </MotionProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
-        <Analytics /><SpeedInsights /><GoogleAnalytics />
+        <Analytics /><SpeedInsights /><GoogleAnalytics /><AdSenseScript />
       </body>
     </html>
   );

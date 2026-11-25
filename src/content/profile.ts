@@ -80,3 +80,6 @@ export const profile = {
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.huzaifasajjaddev.online";
 
 export const siteUrl = configuredSiteUrl.replace(/\/$/, "");
+
+/** Google AdSense publisher ID. Used by the verification tag, the ad script and (as plain text) public/ads.txt. */
+export const adsensePublisherId = "ca-pub-3396023961379458";
