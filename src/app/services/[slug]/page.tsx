@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: gig.searchDescription,
     keywords: gig.searchTerms,
     alternates: { canonical: url },
-    openGraph: { type: "website", title: gig.searchTitle, description: gig.searchDescription, url },
+    openGraph: { ...baseOpenGraph, type: "website", title: gig.searchTitle, description: gig.searchDescription, url },
     twitter: { card: "summary_large_image", title: gig.searchTitle, description: gig.searchDescription },
   };
 }

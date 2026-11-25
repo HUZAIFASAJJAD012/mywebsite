@@ -54,3 +54,12 @@ describe("project content", () => {
     }
   });
 });
+
+describe("project search snippets", () => {
+  it("has a short description that fits a search snippet", () => {
+    for (const project of projects) {
+      expect(project.shortDescription.length, project.slug).toBeGreaterThanOrEqual(70);
+      expect(project.shortDescription.length, project.slug).toBeLessThanOrEqual(165);
+    }
+  });
+});

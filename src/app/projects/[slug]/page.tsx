@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params; const project = getProject(slug);
   if (!project) return {};
   const title = project.seoTitle ?? `${project.title} Web Development Case Study`;
-  return { title, description: project.summary, alternates: { canonical: `/projects/${slug}` }, openGraph: { title, description: project.summary, url: `/projects/${slug}`, type: "article" }, twitter: { card: "summary_large_image", title, description: project.summary } };
+  return { title, description: project.shortDescription, alternates: { canonical: `/projects/${slug}` }, openGraph: { ...baseOpenGraph, title, description: project.shortDescription, url: `/projects/${slug}`, type: "article" }, twitter: { card: "summary_large_image", title, description: project.shortDescription } };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {

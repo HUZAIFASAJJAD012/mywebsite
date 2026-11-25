@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Blocks, Bot, Box, Braces, Check, CloudUpload, Code2, Layers3, MessageCircle, PanelsTopLeft, Rocket, SearchCheck, ShieldCheck, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
@@ -10,8 +11,7 @@ export const metadata: Metadata = {
   description: "Hire Huzaifa Sajjad for full-stack development, custom websites, Next.js applications, mobile apps, backend APIs, e-commerce, MVPs and automation.",
   keywords: ["freelance full stack developer", "web developer", "Next.js developer", "mobile app developer", "backend API developer", "ecommerce developer", "MVP developer", "AI automation developer"],
   alternates: { canonical: "/services" },
-  openGraph: {
-    type: "website",
+  openGraph: { ...baseOpenGraph, type: "website",
     title: "Full-Stack, Web & Mobile Development Services",
     description: "Production-minded development services for websites, applications, mobile products, APIs, e-commerce and MVPs.",
     url: "/services",

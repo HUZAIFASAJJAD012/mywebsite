@@ -6,12 +6,14 @@ import { siteUrl } from "@/content/profile";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(process.env.SITE_LAST_MODIFIED ?? "2026-08-25");
+  // The articles index really changes whenever an article is added or updated, so use the newest article date.
+  const articlesLastModified = new Date(articles.reduce((latest, article) => (article.updatedAt > latest ? article.updatedAt : latest), ""));
   const corePages: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified, changeFrequency: "monthly", priority: 1, images: [`${siteUrl}/myprofile.png`] },
     { url: `${siteUrl}/about`, lastModified, changeFrequency: "yearly", priority: .9, images: [`${siteUrl}/myprofile.png`] },
     { url: `${siteUrl}/projects`, lastModified, changeFrequency: "monthly", priority: .9 },
     { url: `${siteUrl}/services`, lastModified, changeFrequency: "monthly", priority: .9 },
-    { url: `${siteUrl}/articles`, lastModified, changeFrequency: "weekly", priority: .8 },
+    { url: `${siteUrl}/articles`, lastModified: articlesLastModified, changeFrequency: "weekly", priority: .8 },
     { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: .7 },
     { url: `${siteUrl}/privacy`, lastModified: new Date("2026-11-18"), changeFrequency: "yearly", priority: .3 },
   ];

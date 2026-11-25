@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import { Code2, ExternalLink, Mail, MapPin, MessageCircle } from "lucide-react";
 import { profile } from "@/content/profile";
 import { gigs } from "@/content/gigs";
 import { getProject } from "@/content/projects";
 import { ContactForm } from "@/components/contact/contact-form";
 
-export const metadata: Metadata = { title: { absolute: "Contact Huzaifa Sajjad | Full-Stack Developer" }, description: "Contact Huzaifa Sajjad about a website, web application, mobile app, SaaS product, e-commerce store, API or existing software improvement.", alternates: { canonical: "/contact" }, openGraph: { title: "Contact Huzaifa Sajjad | Full-Stack Developer", description: "Share your project requirements with Huzaifa Sajjad and receive a clear next step.", url: "/contact", type: "website" }, twitter: { card: "summary_large_image", title: "Contact Huzaifa Sajjad | Full-Stack Developer", description: "Discuss your website, application, mobile, e-commerce or backend project." } };
+export const metadata: Metadata = { title: { absolute: "Contact Huzaifa Sajjad | Full-Stack Developer" }, description: "Contact Huzaifa Sajjad about a website, web application, mobile app, SaaS product, e-commerce store, API or existing software improvement.", alternates: { canonical: "/contact" }, openGraph: { ...baseOpenGraph, title: "Contact Huzaifa Sajjad | Full-Stack Developer", description: "Share your project requirements with Huzaifa Sajjad and receive a clear next step.", url: "/contact", type: "website" }, twitter: { card: "summary_large_image", title: "Contact Huzaifa Sajjad | Full-Stack Developer", description: "Discuss your website, application, mobile, e-commerce or backend project." } };
 
 const projectTypeByService: Record<string, string> = {
   "web-development": "Business Website", "small-business-websites": "Business Website", "business-landing-page": "Business Website",

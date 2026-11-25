@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph, toIsoDateTime } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: article.keywords,
     authors: [{ name: profile.name, url: `${siteUrl}/about` }],
     alternates: { canonical: url },
-    openGraph: { type: "article", title: article.seoTitle, description: article.description, url, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, authors: [`${siteUrl}/about`], section: article.category, tags: article.keywords },
+    openGraph: { ...baseOpenGraph, type: "article", title: article.seoTitle, description: article.description, url, publishedTime: toIsoDateTime(article.publishedAt), modifiedTime: toIsoDateTime(article.updatedAt), authors: [`${siteUrl}/about`], section: article.category, tags: article.keywords },
     twitter: { card: "summary_large_image", title: article.seoTitle, description: article.description },
   };
 }
@@ -43,8 +44,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       url,
       mainEntityOfPage: url,
       image: `${url}/opengraph-image`,
-      datePublished: article.publishedAt,
-      dateModified: article.updatedAt,
+      datePublished: toIsoDateTime(article.publishedAt),
+      dateModified: toIsoDateTime(article.updatedAt),
       inLanguage: "en",
       articleSection: article.category,
       keywords: article.keywords.join(", "),

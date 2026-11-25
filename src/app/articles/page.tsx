@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { articleReadingMinutes, articles } from "@/content/articles";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: "/articles" },
-  openGraph: { title, description, url: "/articles", type: "website" },
+  openGraph: { ...baseOpenGraph, title, description, url: "/articles", type: "website" },
   twitter: { card: "summary_large_image", title, description },
 };
 

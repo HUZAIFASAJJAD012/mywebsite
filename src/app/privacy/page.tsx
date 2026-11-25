@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
 import { profile, siteUrl } from "@/content/profile";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: "/privacy" },
-  openGraph: { title, description, url: "/privacy", type: "website" },
+  openGraph: { ...baseOpenGraph, title, description, url: "/privacy", type: "website" },
   twitter: { card: "summary", title, description },
 };
 

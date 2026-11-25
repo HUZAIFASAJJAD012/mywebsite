@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Code2, ExternalLink } from "lucide-react";
@@ -8,7 +9,7 @@ import { ExperienceTimeline } from "@/components/experience/experience-timeline"
 import { ContactCta } from "@/components/layout/contact-cta";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export const metadata: Metadata = { title: { absolute: "About Huzaifa Sajjad | Full-Stack Developer" }, description: "Learn about Huzaifa Sajjad, a full-stack and mobile developer in Pakistan building web applications, backend systems and digital products worldwide.", alternates: { canonical: "/about" }, openGraph: { title: "About Huzaifa Sajjad | Full-Stack Developer", description: "Professional experience, product approach, technical skills and education.", url: "/about", type: "profile" }, twitter: { card: "summary_large_image", title: "About Huzaifa Sajjad | Full-Stack Developer", description: "Professional experience, product approach, technical skills and education." } };
+export const metadata: Metadata = { title: { absolute: "About Huzaifa Sajjad | Full-Stack Developer" }, description: "Learn about Huzaifa Sajjad, a full-stack and mobile developer in Pakistan building web applications, backend systems and digital products worldwide.", alternates: { canonical: "/about" }, openGraph: { ...baseOpenGraph, title: "About Huzaifa Sajjad | Full-Stack Developer", description: "Professional experience, product approach, technical skills and education.", url: "/about", type: "profile" }, twitter: { card: "summary_large_image", title: "About Huzaifa Sajjad | Full-Stack Developer", description: "Professional experience, product approach, technical skills and education." } };
 const principles = ["Build for the real user", "Keep architecture understandable", "Make performance part of design", "Communicate risks early", "Prefer dependable delivery over unnecessary complexity"];
 
 export default function AboutPage() {

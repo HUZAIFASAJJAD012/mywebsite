@@ -12,6 +12,7 @@ import { AnalyticsEvents } from "@/components/analytics/analytics-events";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { profile, siteUrl } from "@/content/profile";
 import { personJsonLd, websiteJsonLd } from "@/lib/structured-data";
+import { baseOpenGraph, isIndexableEnvironment } from "@/lib/seo";
 import "./globals.css";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
@@ -37,9 +38,11 @@ export const metadata: Metadata = {
   ],
   formatDetection: { email: false, address: false, telephone: false },
   alternates: { canonical: "/" },
-  openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Developer`, description: profile.heroCopy, url: "/", siteName: profile.name, locale: "en_US" },
+  openGraph: { type: "website", title: `${profile.name} | Freelance Full-Stack Developer`, description: profile.heroCopy, url: "/", ...baseOpenGraph },
   twitter: { card: "summary_large_image", title: `${profile.name} | Freelance Full-Stack Developer`, description: profile.heroCopy },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  robots: isIndexableEnvironment()
+    ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } }
+    : { index: false, follow: false },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
