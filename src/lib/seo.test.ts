@@ -17,10 +17,18 @@ describe("indexing by environment", () => {
   it("serves a crawlable robots.txt with a sitemap in production", () => {
     vi.stubEnv("VERCEL_ENV", "production");
     const result = robots();
-    expect(result.rules).toMatchObject({ userAgent: "*", allow: "/" });
+    expect(result.rules).toContainEqual(expect.objectContaining({ userAgent: "*", allow: "/" }));
     expect(result.sitemap).toMatch(/\/sitemap\.xml$/);
     // Never block assets or pages needed for rendering.
     expect(JSON.stringify(result.rules)).not.toContain("_next");
+  });
+
+  it("explicitly allows AI search and assistant crawlers, still excluding the API", () => {
+    vi.stubEnv("VERCEL_ENV", "production");
+    const rules = robots().rules as { userAgent: string | string[]; allow?: string; disallow?: string }[];
+    const ai = rules.find((rule) => Array.isArray(rule.userAgent));
+    expect(ai?.userAgent).toEqual(expect.arrayContaining(["OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended"]));
+    expect(ai).toMatchObject({ allow: "/", disallow: "/api/" });
   });
 
   it("blocks all crawling on preview deployments", () => {
