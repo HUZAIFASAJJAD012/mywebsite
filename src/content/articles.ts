@@ -316,7 +316,7 @@ export async function POST(request: Request) {
             "Add validation, logging and human review, then launch to a limited group first.",
             "Improve the prompt and workflow using real feedback before expanding.",
           ] },
-          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development). Want to turn these skills into income? Read [how to make money with Claude AI in 2027](/articles/make-money-with-claude-ai-2027). Running a business? See the [best AI tools for small business in 2027](/articles/best-ai-tools-for-small-business-2027). Choosing a platform for a new site? Read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website)." },
+          { type: "p", text: "If you would like help planning or building a Claude-powered website feature, an automation or a full product, [get in touch](/contact) or explore my [full-stack development service](/services/full-stack-development). Want to turn these skills into income? Read [how to make money with Claude AI in 2027](/articles/make-money-with-claude-ai-2027). Curious where web development is heading? Read [web development in 2027: what is changing](/articles/web-development-in-2027-what-is-changing). Running a business? See the [best AI tools for small business in 2027](/articles/best-ai-tools-for-small-business-2027). Choosing a platform for a new site? Read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website)." },
         ],
       },
     ],
@@ -721,6 +721,193 @@ export async function POST(request: Request) {
       { question: "Can AI help my website get more customers?", answer: "It can help with content planning, metadata, customer questions and lead handling. But rankings and conversions depend mostly on a fast, clear website, genuinely helpful content and trust signals. AI is a support tool, not a replacement for a well-built site." },
     ],
     relatedServiceSlugs: ["ai-automation", "small-business-websites", "seo-services"],
+  },
+  {
+    slug: "web-development-in-2027-what-is-changing",
+    title: "Web development in 2027: what is changing and what to do about it",
+    seoTitle: "Web Development in 2027: What's Changing and What to Do",
+    description:
+      "What will web development look like in 2027? AI coding tools, Core Web Vitals, accessibility law and frameworks, plus what business owners and beginners should do.",
+    excerpt:
+      "A practical look at how web development is changing heading into 2027: AI-assisted coding, performance, accessibility rules, modern frameworks and search, with clear next steps for business owners and for people learning to become web developers.",
+    category: "Web development",
+    keywords: [
+      "web development 2027",
+      "web development trends",
+      "website development",
+      "web developer",
+      "web designer vs web developer",
+      "what is web development",
+      "how to learn web development",
+      "web development for beginners",
+      "full stack web development",
+      "web development jobs",
+    ],
+    publishedAt: "2026-11-27",
+    updatedAt: "2026-11-27",
+    sections: [
+      {
+        id: "quick-answer",
+        heading: "The quick answer",
+        blocks: [
+          { type: "p", text: "Nobody can forecast 2027 exactly, and I found no reliable 2027 forecast from a primary source while researching this guide. What I can show you is what is **already changing** as of November 2026 and will shape the next year of web development:" },
+          { type: "ul", items: [
+            "**AI coding tools are now normal.** Most developers use them, but many do not fully trust the output, so review and testing matter more, not less.",
+            "**Speed is measured by real users.** Google’s Core Web Vitals, including Interaction to Next Paint (INP), reward sites that respond quickly.",
+            "**Accessibility is becoming a legal and commercial issue**, not just good practice, especially if you sell to customers in the European Union.",
+            "**Server-first frameworks** such as Next.js send less JavaScript to the browser and make content easier for search engines to read.",
+            "**Search is changing.** Clear structure, helpful content and trust signals matter more as AI answers sit beside the normal results.",
+          ] },
+          { type: "p", text: "If you own a business, the practical advice is to make your site fast, accessible, easy to update and genuinely useful. If you want to become a developer, learn the fundamentals first and build real projects, because tools change faster than the basics." },
+          { type: "note", text: "This guide reflects what I could verify in November 2026. Tools, rules and prices change, so check the linked sources before you make a business or legal decision." },
+        ],
+      },
+      {
+        id: "what-is-web-development",
+        heading: "What is web development? A quick refresher",
+        blocks: [
+          { type: "p", text: "**Web development** is building and maintaining websites and web applications. Website development covers everything from a simple business site to a complex online platform where users sign in, pay and manage data." },
+          { type: "p", text: "People use several job titles, and they overlap:" },
+          { type: "ul", items: [
+            "**Front-end developer:** builds what visitors see and use in the browser, with HTML, CSS and JavaScript, usually with a framework such as React.",
+            "**Back-end developer:** builds the servers, databases, APIs and logic behind the scenes, for example with Node.js and PostgreSQL.",
+            "**Full-stack developer:** works on both sides. Full-stack web development suits small teams and businesses that want one person to own the whole build.",
+            "**Web designer:** plans the look, layout and user experience. Many designers also write some code, and many developers also design.",
+          ] },
+          { type: "p", text: "So the difference between a **web designer and a web developer** is mostly focus. A designer decides how the site should look and feel, and a developer makes it work, load fast and stay secure. For a business website you usually need both skills, either in one person or in a small team." },
+        ],
+      },
+      {
+        id: "ai-coding",
+        heading: "Change 1: AI is part of everyday development",
+        blocks: [
+          { type: "p", text: "The [2025 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2025/ai), the most recent edition I could verify, found that 84% of respondents use or plan to use AI tools in their development process, up from 76% the year before. About half of professional developers (51%) use them daily." },
+          { type: "p", text: "The same survey also found trust is low. More developers said they distrust the accuracy of AI output (46%) than trust it (33%). That matches my experience: AI is very good at first drafts, repetitive code and explaining unfamiliar code, and it still makes confident mistakes." },
+          { type: "p", text: "**What this means in 2027:**" },
+          { type: "ul", items: [
+            "Building a basic site is faster than it used to be, so clients rightly expect quicker delivery and clearer pricing.",
+            "The valuable skills are shifting to judgement: deciding what to build, reviewing code, testing, security and performance.",
+            "A site that was generated quickly but never reviewed can look fine and still be slow, inaccessible or insecure. Ask any developer or agency how they check AI-assisted work.",
+          ] },
+          { type: "p", text: "I use AI tools myself and wrote about how in [Claude AI for web development: a practical guide](/articles/claude-ai-for-web-development). My rule is simple: AI can draft, but a person is responsible for what ships." },
+        ],
+      },
+      {
+        id: "performance",
+        heading: "Change 2: Performance is judged on real users",
+        blocks: [
+          { type: "p", text: "Google measures real-world page experience with the Core Web Vitals. The three metrics are loading (Largest Contentful Paint, good at 2.5 seconds or less), visual stability (Cumulative Layout Shift, good at 0.1 or less) and responsiveness. For responsiveness, Interaction to Next Paint replaced First Input Delay, and [web.dev](https://web.dev/articles/optimize-inp) describes an INP of 200 milliseconds or less as good, measured at the 75th percentile of real page loads." },
+          { type: "p", text: "INP matters because it looks at **every** interaction during a visit, not just the first one. Heavy JavaScript, large third-party scripts and badly built menus or forms are common causes of a poor score." },
+          { type: "p", text: "**What to do:**" },
+          { type: "ul", items: [
+            "Check your site on a real mid-range phone, not only on a fast laptop.",
+            "Remove scripts and widgets you do not need. Every tracker, chat widget and ad script has a cost.",
+            "Ask your developer for your actual Core Web Vitals numbers from real visitors, for example from Search Console or a speed monitoring tool, not only a one-off lab test.",
+          ] },
+          { type: "p", text: "Speed is not a guarantee of rankings, but a slow site loses visitors before they read a word. I hold this portfolio site to Core Web Vitals targets (LCP 2.2 seconds or less, INP 150 milliseconds or less, CLS 0.05 or less) and measure them with real-user data." },
+        ],
+      },
+      {
+        id: "accessibility",
+        heading: "Change 3: Accessibility is no longer optional",
+        blocks: [
+          { type: "p", text: "Accessibility means people with disabilities, including those who use screen readers or only a keyboard, can use your site. The standard most people follow is the Web Content Accessibility Guidelines (WCAG), and version 2.2 is the current one." },
+          { type: "p", text: "In the European Union, the European Accessibility Act has applied since 28 June 2025 to many consumer-facing digital products and services, including e-commerce. It points to the European standard EN 301 549, which builds on WCAG 2.1 level AA. Some very small businesses providing services may be exempt, and existing rules differ by country and by product. I am not a lawyer, so check the rules for your own situation." },
+          { type: "p", text: "Even without a legal requirement, accessibility is good business. The fixes also improve usability for everyone: clear headings, readable contrast, keyboard-friendly menus, labelled form fields and descriptive link text." },
+          { type: "p", text: "I build this site to a WCAG 2.2 AA target and honour reduced-motion preferences, and I implement accessible page structure and navigation on client sites such as [Luex Healthcare](/projects/luex-healthcare)." },
+        ],
+      },
+      {
+        id: "frameworks",
+        heading: "Change 4: Server-first frameworks and fewer JavaScript bundles",
+        blocks: [
+          { type: "p", text: "For years, many sites sent a large JavaScript bundle to the browser and built the page there. The trend now is the opposite: render as much as possible on the server and send JavaScript only where the page really needs interaction." },
+          { type: "p", text: "[Next.js](/services/nextjs-development) and React Server Components are a popular way to do this. Benefits include faster first loads, content that search engines can read without running scripts, and a single codebase for pages and APIs. Other good frameworks exist, so the right choice depends on your team and project." },
+          { type: "p", text: "If you are comparing options for a business site, read [Next.js vs WordPress for business websites](/articles/nextjs-vs-wordpress-business-website). WordPress is still a sensible choice when non-technical staff need to edit lots of content every day." },
+          { type: "p", text: "A tool does not make a site good. A fast, well-structured site built with a simple stack beats a slow site built with the newest one." },
+        ],
+      },
+      {
+        id: "search",
+        heading: "Change 5: Search is changing, but the basics still win",
+        blocks: [
+          { type: "p", text: "More searches now show AI-generated summaries beside or above the usual blue links. Nobody outside the search companies knows exactly how those features will evolve, so be careful with anyone who promises a secret formula for 2027." },
+          { type: "p", text: "What reliably helps, whatever the interface looks like:" },
+          { type: "ul", items: [
+            "**Pages that answer a specific question clearly,** in plain language, written for people first.",
+            "**Clean technical foundations:** one H1 per page, descriptive titles and meta descriptions, canonical URLs, a sitemap and working internal links.",
+            "**Structured data** such as Article, FAQ, Organization and Breadcrumb markup, so machines can understand the page.",
+            "**Real proof:** actual projects, named authors and honest claims. I list my work on the [projects page](/projects) rather than invent numbers.",
+            "**Specific topics and locations** instead of broad terms. “Web developer” is dominated by big marketplaces, while “website developer for restaurants in Johor Bahru” is a smaller and more winnable search.",
+          ] },
+          { type: "p", text: "For a deeper look at the technical side, see my [SEO services](/services/seo-services)." },
+        ],
+      },
+      {
+        id: "business-owners",
+        heading: "What business owners should do in 2027",
+        blocks: [
+          { type: "p", text: "You do not need to chase every trend. Use this checklist to decide whether your current site is ready:" },
+          { type: "ol", items: [
+            "**Measure first.** Check your Core Web Vitals and run an accessibility check on your most important pages.",
+            "**Fix the money pages.** Make sure your homepage, service pages and contact route load fast on a phone and say clearly what you do and who you do it for.",
+            "**Make updating easy.** If changing a price or a phone number takes a developer a week, your setup is working against you.",
+            "**Add useful content.** Publish pages that answer the real questions customers ask before they buy.",
+            "**Keep third-party scripts under control.** Review analytics, chat, ads and widgets every few months.",
+            "**Decide rebuild or repair.** A rebuild makes sense when the site is slow, hard to update or cannot be made accessible. Otherwise, targeted fixes cost less.",
+          ] },
+          { type: "p", text: "If you want an expert opinion, read about my [web development service](/services/web-development) or [small business websites](/services/small-business-websites). I work with clients in Kuwait and around the world, and you can see examples such as the [Al Khalifa Signature restaurant website](/projects/al-khalifa-signature)." },
+        ],
+      },
+      {
+        id: "learners",
+        heading: "How to learn web development in 2027 (for beginners)",
+        blocks: [
+          { type: "p", text: "If you are asking how to learn web development, the good news is that the fundamentals have not changed. The order I recommend:" },
+          { type: "ol", items: [
+            "**HTML and CSS.** Learn semantic HTML, layout with Flexbox and Grid, and responsive design. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn_web_development) is a free, reliable place to start.",
+            "**JavaScript.** Learn the language itself before a framework: variables, functions, arrays, objects, the DOM and fetching data.",
+            "**Git and the command line.** You will use both in every job.",
+            "**TypeScript and React.** These are common in professional teams. Add Next.js when you are comfortable with React.",
+            "**A backend basics project.** Build a small API with Node.js and a database to understand how data flows.",
+            "**Accessibility and performance.** Treat them as part of the basics, not extras.",
+          ] },
+          { type: "p", text: "Use AI as a tutor, not as a shortcut. Ask it to explain code and then rebuild the solution yourself. If you let it write everything, you will not learn to debug, and debugging is most of the job." },
+          { type: "p", text: "**About jobs:** I cannot promise what the web development job market will look like in 2027. Competition for junior roles is real, and employers often want proof that you can finish things. The most useful thing you can do is publish a small number of real, working projects with clear write-ups, and contribute where you can. Freelancing is another route, and I explain one angle in [how to make money with Claude AI in 2027](/articles/make-money-with-claude-ai-2027)." },
+        ],
+      },
+      {
+        id: "wont-change",
+        heading: "What will not change",
+        blocks: [
+          { type: "ul", items: [
+            "Visitors want a site that loads quickly, makes sense and works on their phone.",
+            "Clear writing and honest claims build trust.",
+            "Security, backups and maintenance still need an owner.",
+            "Understanding the business problem matters more than the tool you choose.",
+          ] },
+          { type: "p", text: "Tools will keep changing in 2027. The developers and businesses that do well will be the ones who keep the basics strong and adopt new tools carefully." },
+        ],
+      },
+      {
+        id: "next-step",
+        heading: "Your next step",
+        blocks: [
+          { type: "p", text: "If you own a website, pick one page, check how fast and accessible it is today and fix the biggest problem first. If you are learning, build one small real project this month and publish it." },
+          { type: "p", text: "If you would like help with either a new site or an honest review of your current one, [contact me](/contact) with your website address and what you want to improve, or browse my [full-stack development services](/services/full-stack-development)." },
+        ],
+      },
+    ],
+    faqs: [
+      { question: "What is web development?", answer: "Web development is the work of building and maintaining websites and web applications. It includes front-end work (what users see), back-end work (servers, databases and APIs) and the deployment, security and performance that keep a site running well." },
+      { question: "What is the difference between a web designer and a web developer?", answer: "A web designer focuses on layout, visual style and user experience. A web developer writes the code that makes the design work, load quickly and connect to data. The roles overlap, and small projects often use one person for both." },
+      { question: "Will AI replace web developers by 2027?", answer: "No one can say for certain. Surveys show most developers already use AI tools, but many do not fully trust the output, and people are still needed to decide what to build, review code, test, secure and maintain it. The work is changing, especially at entry level, so building judgement and real projects is the safest path." },
+      { question: "Is web development a good career in 2027?", answer: "It can be, but there are no guarantees. Competition for junior roles is real and tools change quickly. People who learn the fundamentals, keep learning and can show finished projects tend to be in the best position. Check current job listings in your own country before you decide." },
+      { question: "How long does it take to learn web development?", answer: "It depends on your time and goals. Many people can build simple pages within a few weeks, but becoming job-ready for professional work usually takes many months of steady practice, including JavaScript, a framework, Git and several real projects." },
+      { question: "Which programming languages should I learn first for web development?", answer: "Start with HTML, CSS and JavaScript. Then add TypeScript and a framework such as React, and later a backend language or runtime such as Node.js. Choose depth in a few tools over shallow knowledge of many." },
+      { question: "Should I rebuild my business website in 2027?", answer: "Rebuild when the site is slow, hard to update, cannot be made accessible or no longer matches your business. If it still works well, targeted improvements to speed, content and accessibility usually cost less and carry less risk." },
+    ],
+    relatedServiceSlugs: ["web-development", "small-business-websites", "nextjs-development"],
   },
 ];
 

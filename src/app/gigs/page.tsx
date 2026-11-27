@@ -9,7 +9,7 @@ import { profile, siteUrl } from "@/content/profile";
 export const metadata: Metadata = {
   title: "Freelance Full-Stack Development Services",
   description: "Hire Huzaifa Sajjad for full-stack development, custom websites, Next.js applications, mobile apps, backend APIs, e-commerce, MVPs and automation.",
-  keywords: ["freelance full stack developer", "web developer", "Next.js developer", "mobile app developer", "backend API developer", "ecommerce developer", "MVP developer", "AI automation developer"],
+  keywords: ["freelance web developer", "website development services", "full stack web development", "Next.js developer", "small business website developer", "ecommerce website development", "mobile app developer", "MVP developer"],
   alternates: { canonical: "/services" },
   openGraph: { ...baseOpenGraph, type: "website",
     title: "Full-Stack, Web & Mobile Development Services",

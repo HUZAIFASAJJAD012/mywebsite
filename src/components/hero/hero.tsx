@@ -13,7 +13,7 @@ export function Hero() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>— IDEAS INTO REALITY</p>
           <p className={styles.introduction}>Hello, I’m {profile.name}.</p>
-          <h1 id="hero-heading">Your vision.<br /><span>Built beyond</span><br />expectations.</h1>
+          <h1 id="hero-heading">Freelance web developer.<br /><span>Your vision, built</span><br />beyond expectations.</h1>
           <p className={styles.role}>{profile.shortTitle}</p>
           <p className={styles.description}>{profile.heroCopy}</p>
           <div className={styles.actions}>
